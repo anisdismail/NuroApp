@@ -4,7 +4,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.nuroapp"
+
         minSdk 25
         targetSdk 31
         versionCode 1
