@@ -1,12 +1,16 @@
 package ir.shahinsoft.graphdraw;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Picture;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -14,12 +18,16 @@ import android.view.View;
 
 import static java.lang.Math.abs;
 
+import androidx.core.content.res.ResourcesCompat;
+
+import java.io.File;
+
 import ir.shahinsoft.graphdraw.model.Edge;
 import ir.shahinsoft.graphdraw.model.Graph;
 import ir.shahinsoft.graphdraw.model.Node;
 
 public class GraphView extends View {
-
+    Drawable arrow;
     float maxRelativeSizeX = 100f;
     float maxRelativeSizeY = 100f;
     float radius = 60f;
@@ -100,26 +108,30 @@ public class GraphView extends View {
 
     public GraphView(Context context) {
         super(context);
-        initView(null);
+        initView(null,context);
+
     }
 
     public GraphView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initView(attrs);
+        initView(attrs,context);
     }
 
     public GraphView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initView(attrs);
+        initView(attrs,context);
     }
 
     public GraphView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initView(attrs);
+        initView(attrs,context);
     }
 
-    private void initView(AttributeSet attrs) {
+    private void initView(AttributeSet attrs,Context context) {
 
+        //Resources res = context.getResources();
+
+        //arrow  = ResourcesCompat.getDrawable(res, R.drawable.chevron_arrow, null);
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStrokeWidth(stroke);
@@ -178,6 +190,7 @@ public class GraphView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(2);
         paint.setColor(Color.RED);
+
         /*sPath path = new Path();
         path.moveTo(0, -10);
         path.lineTo(5, 0);
@@ -206,12 +219,17 @@ public class GraphView extends View {
         
         if (node.hasFocus()) {
             paint.setColor(selectedNodeColor);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawCircle(posx, posy, radius, paint);
+
         } else {
             paint.setColor(node.getColor());
             canvas.drawCircle(posx, posy, radius, paint);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
         }
-
+        //if(arrow!=null){
+        //arrow.setBounds(0, 0, 255, 255);
+        //arrow.draw(canvas);}
     }
 
     private float getPosYForNode(float relativePositionY) {
