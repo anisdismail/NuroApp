@@ -1,9 +1,11 @@
 package com.example.nuroapp;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.nuroapp.MainActivityFragments.FlowchartsFragment;
+import com.example.nuroapp.RecyclerViewUtils.StepsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private String latestTitle;
 
     FlowchartsFragment flowchartsFragment;
+
+    Button buttonImageDetection;
 
 
     @Override
@@ -95,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
        // if (!folder.exists()) {
          //   folder.mkdirs();
         //}
+
+        buttonImageDetection = findViewById(R.id.button);
+        buttonImageDetection.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, StepsActivity.class);
+            startActivity(i);
+        });
     }
 
     @Override

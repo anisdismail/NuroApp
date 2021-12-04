@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/activity_drawing.xml" value="0.16" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/activity_graph_draw.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/activity_scrolling_steps.xml" value="0.2504528985507246" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/activity_steps.xml" value="0.264" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/content_scrolling.xml" value="0.2504528985507246" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/flowchart_thumbnail.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/fragment_flowcharts.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/fragment_help.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/if_shape_dialog.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/layout/while_shape_dialog.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/menu/menu_scrolling_activity__steps.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/EasyTek/OneDrive/Documents/GitHub/NuroApp/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/arrow_shape.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/background_border.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/border.xml" value="0.14635416666666667" />
