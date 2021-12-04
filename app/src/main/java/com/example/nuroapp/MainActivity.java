@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
          //   folder.mkdirs();
         //}
 
-        ImageDetectionBtn = findViewById(R.id.button);
+        ImageDetectionBtn = findViewById(R.id.buttonMLWorkflow);
         ImageDetectionBtn.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, StepsActivity.class);
             startActivity(i);

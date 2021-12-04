@@ -8,68 +8,6 @@ android:layout_width="match_parent"
 android:layout_height="match_parent">
 <!-- The main content view -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="304dp"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:text="Welcome back John Cena, what would you like to learn today?"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="200dp"
-            android:text="Machine Learning Workflow"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.821" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:text="Image Classification"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:text="Natural Language Processing"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="50dp"
-            android:text="Deep Learning"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
-            app:layout_constraintVertical_bias="0.371" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <FrameLayout
     android:id="@+id/content_frame"
     android:layout_width="match_parent"
@@ -82,5 +20,67 @@ android:layout_height="match_parent">
     android:layout_gravity="start"
     app:menu="@menu/navigation_menu">
 </com.google.android.material.navigation.NavigationView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="304dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="Welcome back John Cena, what would you like to learn today?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf="@+id/buttonMLWorkflow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonMLWorkflow"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="200dp"
+            android:text="Machine Learning Workflow"
+            app:layout_constraintBottom_toTopOf="@+id/buttonImgClassification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.821" />
+
+        <Button
+            android:id="@+id/buttonImgClassification"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:text="Image Classification"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNLP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMLWorkflow" />
+
+        <Button
+            android:id="@+id/buttonNLP"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:text="Natural Language Processing"
+            app:layout_constraintBottom_toTopOf="@+id/buttonDL"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonImgClassification" />
+
+        <Button
+            android:id="@+id/buttonDL"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="50dp"
+            android:text="Deep Learning"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNLP"
+            app:layout_constraintVertical_bias="0.371" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

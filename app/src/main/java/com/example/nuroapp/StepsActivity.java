@@ -23,7 +23,7 @@ public class StepsActivity extends AppCompatActivity {
         Button buttonSkip = findViewById(R.id.buttonSkip);
 
         ImageView imageView = findViewById(R.id.imageView);
-        TextView textView = findViewById(R.id.textView2);
+        TextView textView = findViewById(R.id.description);
 
         AtomicInteger count = new AtomicInteger(1); // count the steps in image detection. we have 7 steps in the google doc
 
@@ -43,6 +43,10 @@ public class StepsActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(v -> {
             count.getAndDecrement();
             switch (count.intValue()) {
+                case 0:
+                    Intent intent = new Intent(StepsActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    break;
                 case 1:
                     //imageView.setImageDrawable();         // change image
                     //textView.setText();                   // change text
@@ -57,8 +61,8 @@ public class StepsActivity extends AppCompatActivity {
                     break;
                 case 6:
                     break;
-                //case 7:
-                //    break;
+                case 7:
+                    break;
             }
 
         });
@@ -83,6 +87,7 @@ public class StepsActivity extends AppCompatActivity {
                 case 7:
                     break;
                 default:
+                    count.set(7); //to not get back to 8 when back is pressed
                     Intent intent = new Intent(StepsActivity.this, DrawingActivity.class);
                     startActivity(intent);
                     break;
