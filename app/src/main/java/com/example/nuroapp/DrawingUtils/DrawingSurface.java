@@ -60,12 +60,13 @@ public class DrawingSurface extends View implements View.OnDragListener {
 
     private long startClickTime;
 
-    private static final String start = Shape.SHAPETYPE.START.toString();
-    private static final String process = Shape.SHAPETYPE.PROCESS.toString();
-    private static final String input = Shape.SHAPETYPE.INPUT.toString();
-    private static final String condition = Shape.SHAPETYPE.CONDITION.toString();
-    private static final String output = Shape.SHAPETYPE.OUTPUT.toString();
-    private static final String while_ = Shape.SHAPETYPE.WHILE.toString();
+    private static final String preprocessing = Shape.SHAPETYPE.PREPROCESSING.toString();
+    private static final String dataloading = Shape.SHAPETYPE.DATALOADING.toString();
+    private static final String datavisualization = Shape.SHAPETYPE.DATAVISUALIZATION.toString();
+    private static final String buildmodel = Shape.SHAPETYPE.BUILDMODEL.toString();
+    private static final String trainmodel = Shape.SHAPETYPE.TRAINMODEL.toString();
+    private static final String evaluatemodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
+    private static final String launchmodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
 
     private int nextId;
     private boolean hideLines = false;
@@ -139,13 +140,9 @@ public class DrawingSurface extends View implements View.OnDragListener {
         int l = Math.round(this.getHeight());
         int w = Math.round(this.getWidth());
 
-        if (shapetype == Shape.SHAPETYPE.CONDITION){
-            shapes.add(new ConditionShape(context, this, x, y, l, w, shapetype, nextId));
-        } else if (shapetype == Shape.SHAPETYPE.WHILE) {
-            shapes.add(new WhileShape(context, this, x, y, l, w, shapetype, nextId));
-        } else {
+
             shapes.add(new Shape(context,this, x, y, l, w, shapetype, nextId));
-        }
+
         nextId++;
         invalidate();
     }
@@ -221,7 +218,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
                             if (selectedShape != null){
                                 addedTextOrLine = true;
                                 if (selectedShape == shape){
-                                    getShapeTextInput(shape);
+                                  //  getShapeTextInput(shape);
                                 } else {
                                     selectedShape.setLine(shape);
                                 }
@@ -266,18 +263,21 @@ public class DrawingSurface extends View implements View.OnDragListener {
 
             ClipData.Item item = dragEvent.getClipData().getItemAt(0);
             String dragData = item.getText().toString();
-            if (dragData.equals(start)){
-                addShape(Shape.SHAPETYPE.START, cX, cY);
-            } else if (dragData.equals(process)) {
-                addShape(Shape.SHAPETYPE.PROCESS, cX, cY);
-            } else if (dragData.equals(input)){
-                addShape(Shape.SHAPETYPE.INPUT, cX, cY);
-            } else if (dragData.equals(condition)){
-                addShape(Shape.SHAPETYPE.CONDITION, cX, cY);
-            } else if (dragData.equals(output)){
-                addShape(Shape.SHAPETYPE.OUTPUT, cX, cY);
-            } else if (dragData.equals(while_)){
-                addShape(Shape.SHAPETYPE.WHILE, cX, cY);
+            if (dragData.equals(preprocessing)){
+                addShape(Shape.SHAPETYPE.PREPROCESSING, cX, cY);
+            } else if (dragData.equals(datavisualization)) {
+                addShape(Shape.SHAPETYPE.DATAVISUALIZATION, cX, cY);
+            } else if (dragData.equals(dataloading)){
+                addShape(Shape.SHAPETYPE.DATALOADING, cX, cY);
+            } else if (dragData.equals(trainmodel)){
+                addShape(Shape.SHAPETYPE.TRAINMODEL, cX, cY);
+            } else if (dragData.equals(evaluatemodel)){
+                addShape(Shape.SHAPETYPE.EVALUATEMODEL, cX, cY);
+            } else if (dragData.equals(buildmodel)){
+                addShape(Shape.SHAPETYPE.BUILDMODEL, cX, cY);
+            }
+            else if (dragData.equals(launchmodel)){
+                addShape(Shape.SHAPETYPE.LAUNCHMODEL, cX, cY);
             }
         }
         return true;
@@ -298,7 +298,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
         }
     }
 
-    private void getShapeTextInput (final Shape shape){
+/*    private void getShapeTextInput (final Shape shape){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Enter some text.");
         final EditText shapeTextEditText = new EditText(context);
@@ -321,7 +321,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
 
         builder.show();
     }
-
+*/
     public void prepareToSaveAsImage (boolean hideLines){
         this.hideLines = hideLines;
         invalidate();

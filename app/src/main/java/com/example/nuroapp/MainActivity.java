@@ -15,7 +15,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.nuroapp.MainActivityFragments.FlowchartsFragment;
-import com.example.nuroapp.RecyclerViewUtils.StepsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     FlowchartsFragment flowchartsFragment;
 
-    Button buttonImageDetection;
+    Button ImageDetectionBtn;
 
 
     @Override
@@ -71,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 actionBar.setTitle(menuItem.getTitle().toString());
                 latestTitle = actionBar.getTitle().toString();
                 switch (menuItem.getItemId()) {
-                    case R.id.flowcharts:
-                        fragmentTransaction.replace(R.id.content_frame, new FlowchartsFragment()).commit();
-                        break;
                     case R.id.preferences:
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
@@ -101,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
          //   folder.mkdirs();
         //}
 
-        buttonImageDetection = findViewById(R.id.button);
-        buttonImageDetection.setOnClickListener(v -> {
+        ImageDetectionBtn = findViewById(R.id.button);
+        ImageDetectionBtn.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, StepsActivity.class);
             startActivity(i);
         });

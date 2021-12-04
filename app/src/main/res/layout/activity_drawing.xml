@@ -28,42 +28,47 @@
 
 
                 <ImageView
-                    android:tag="@string/start"
-                    android:id="@+id/start_shape"
+                    android:tag="@string/preprocessing"
+                    android:id="@+id/preprocessing_shape"
                     android:layout_marginLeft="16dp"
                     style="@style/ShapeTheme"
-                    android:src="@drawable/test"/>
+                    android:src="@drawable/preprocessing"/>
 
 
                 <ImageView
-                    android:tag="@string/input"
-                    android:id="@+id/input_shape"
+                    android:tag="@string/dataloading"
+                    android:id="@+id/dataloading_shape"
                     style="@style/ShapeTheme"
-                    android:src="@drawable/input_shape"/>
+                    android:src="@drawable/dataloading"/>
 
                 <ImageView
-                    android:tag="@string/condition"
-                    android:id="@+id/condition_shape"
+                    android:tag="@string/datavisualization"
+                    android:id="@+id/datavisualization_shape"
                     style="@style/ShapeTheme"
-                    android:src="@drawable/condition_shape"/>
+                    android:src="@drawable/datavisualization"/>
 
                 <ImageView
-                    android:tag="@string/process"
-                    android:id="@+id/process_shape"
+                    android:tag="@string/buildmodel"
+                    android:id="@+id/buildmodel_shape"
                     style="@style/ShapeTheme"
-                    android:src="@drawable/process_shape"/>
+                    android:src="@drawable/buildmodel"/>
 
                 <ImageView
-                    android:src="@drawable/while_shape"
-                    android:tag="WHILE"
+                    android:tag="@string/trainmodel"
+                    android:id="@+id/trainmodel_shape"
                     style="@style/ShapeTheme"
-                    android:id="@+id/while_shape"/>
+                    android:src="@drawable/trainmodel"/>
 
                 <ImageView
-                    android:tag="@string/output"
-                    android:id="@+id/output_shape"
+                    android:tag="@string/evaluatemodel"
+                    android:id="@+id/evaluatemodel_shape"
                     style="@style/ShapeTheme"
-                    android:src="@drawable/output_shape"/>
+                    android:src="@drawable/evaluatemodel"/>
+                <ImageView
+                    android:tag="@string/launchmodel"
+                    android:id="@+id/launchmodel_shape"
+                    style="@style/ShapeTheme"
+                    android:src="@drawable/launchmodel"/>
             </LinearLayout>
 
         </HorizontalScrollView>

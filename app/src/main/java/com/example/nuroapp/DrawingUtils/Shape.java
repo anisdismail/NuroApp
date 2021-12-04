@@ -19,8 +19,7 @@ import com.example.nuroapp.R;
 public class Shape {
 
     public enum SHAPETYPE {
-        START, INPUT, CONDITION, PROCESS, WHILE, OUTPUT, ENDofCONDITION
-    }
+        PREPROCESSING,DATALOADING,DATAVISUALIZATION,BUILDMODEL,TRAINMODEL,EVALUATEMODEL,LAUNCHMODEL}
 
     protected final static int MAX_SHAPE_SIZE = 4000;
     protected final static int MIN_SHAPE_SIZE = 700;
@@ -61,26 +60,26 @@ public class Shape {
         shapeOrigin = new Point(x, y);
         this.shapetype = shapetype;
         switch (shapetype){
-            case START:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.test, null);
+            case PREPROCESSING:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.preprocessing, null);
                 break;
-            case INPUT:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.input_shape, null);
+            case DATALOADING:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.dataloading, null);
                 break;
-            case CONDITION:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.condition_shape, null);
+            case DATAVISUALIZATION:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.datavisualization, null);
                 break;
-            case PROCESS:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.process_shape, null);
+            case TRAINMODEL:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.trainmodel, null);
                 break;
-            case WHILE:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.while_shape, null);
+            case EVALUATEMODEL:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.evaluatemodel, null);
                 break;
-            case OUTPUT:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.output_shape, null);
+            case LAUNCHMODEL:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.launchmodel, null);
                 break;
-            case ENDofCONDITION:
-                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.process_shape, null);
+            case BUILDMODEL:
+                shape = VectorDrawableCompat.create(context.getResources(), R.drawable.buildmodel, null);
                 break;
         }
         rectangle = new Rect(x-(width/2), y-(height/2), x+(width/2), y+(height/2));
@@ -155,13 +154,9 @@ public class Shape {
 
     public void setLine(Shape secondShape) {
         if (secondShape != null){
-            if (secondShape.getShapetype() == SHAPETYPE.WHILE) {
-                setupWhileLine(secondShape);
-            } else {
                 removePreviousConnection(secondShape, Line.POSITION.TOP);
                 secondShape.setPreviousShape(this);
                 this.line = new Line(drawingSurface, this, Line.POSITION.BOTTOM, secondShape, Line.POSITION.TOP);
-            }
         } else {
             line = null;
         }
@@ -173,9 +168,7 @@ public class Shape {
         }
         if (shape.getPreviousShape() != null) {
             if (shape.getPreviousShape().getPreviousShape() != null && previousShape != null){
-                if (shape.getPreviousShape().getPreviousShape() == previousShape && previousShape.getShapetype() == SHAPETYPE.CONDITION){
-                    shape.setOtherPreviousShape(shape.previousShape);
-                }
+
             } else {
                 if (shape.getOtherPreviousShape() != null){
                     shape.getOtherPreviousShape().removeLine(shape, Line.POSITION.TOP);
@@ -186,7 +179,7 @@ public class Shape {
         }
     }
 
-    public void setupWhileLine (final Shape shape){
+/*    public void setupWhileLine (final Shape shape){
         final Dialog dialog = new Dialog(drawingSurface.getContext());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.while_shape_dialog);
@@ -214,8 +207,8 @@ public class Shape {
         });
         dialog.show();
     }
-
-    public void setLineFromJSON (Line.POSITION firstPosition, int secondShapeId, Line.POSITION secondPosition){
+*/
+   /* public void setLineFromJSON (Line.POSITION firstPosition, int secondShapeId, Line.POSITION secondPosition){
         if (drawingSurface.getShape(secondShapeId).getPreviousShape() == null){
             drawingSurface.getShape(secondShapeId).setPreviousShape(this);
         } else {
@@ -228,7 +221,7 @@ public class Shape {
         }
         this.line = new Line(drawingSurface, this, firstPosition, drawingSurface.getShape(secondShapeId), secondPosition);
     }
-
+*/
     public int getId() {
         return id;
     }

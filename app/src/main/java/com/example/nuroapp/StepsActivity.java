@@ -1,17 +1,13 @@
-package com.example.nuroapp.RecyclerViewUtils;
+package com.example.nuroapp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.nuroapp.DrawingActivity;
-import com.example.nuroapp.R;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

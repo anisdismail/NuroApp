@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DrawingActivity" />
-        <activity android:name=".RecyclerViewUtils.StepsActivity" />
+        <activity android:name=".StepsActivity" />
     </application>
 
 </manifest>

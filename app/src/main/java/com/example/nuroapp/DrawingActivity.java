@@ -4,9 +4,7 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.graphics.Bitmap;
 import android.graphics.Point;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,16 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nuroapp.DrawingUtils.ConditionShape;
 import com.example.nuroapp.DrawingUtils.DrawingSurface;
 import com.example.nuroapp.DrawingUtils.Line;
 import com.example.nuroapp.DrawingUtils.Shape;
-import com.example.nuroapp.DrawingUtils.Text;
-import com.example.nuroapp.DrawingUtils.WhileShape;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,11 +25,6 @@ public class DrawingActivity extends AppCompatActivity {
     private DrawingSurface drawingSurface;
     public Point point;
 
-    ImageView startShape;
-    ImageView inputShape;
-    ImageView conditionShape;
-    ImageView processShape;
-    ImageView outputShape;
     ImageButton deleteButton;
     ImageButton saveButton;
     ProgressBar progressBar;
@@ -60,18 +46,20 @@ public class DrawingActivity extends AppCompatActivity {
       //  if (data != null && data.length() > 0){
         //    new LoadDiagramDataTask().execute();
        // }
-        ImageView startShape = findViewById(R.id.start_shape);
-        setDraggable(startShape);
-        ImageView inputShape = findViewById(R.id.input_shape);
-        setDraggable(inputShape);
-        ImageView conditionShape = findViewById(R.id.condition_shape);
-        setDraggable(conditionShape);
-        ImageView processShape = findViewById(R.id.process_shape);
-        setDraggable(processShape);
-        ImageView outputShape = findViewById(R.id.output_shape);
-        setDraggable(outputShape);
-        ImageView whileShape = findViewById(R.id.while_shape);
-        setDraggable(whileShape);
+        ImageView preprocessingShape = findViewById(R.id.preprocessing_shape);
+        setDraggable(preprocessingShape);
+        ImageView dataloadingShape = findViewById(R.id.dataloading_shape);
+        setDraggable(dataloadingShape);
+        ImageView datavisualizationShape = findViewById(R.id.datavisualization_shape);
+        setDraggable(datavisualizationShape);
+        ImageView buildmodelShape = findViewById(R.id.buildmodel_shape);
+        setDraggable(buildmodelShape);
+        ImageView trainmodelShape = findViewById(R.id.trainmodel_shape);
+        setDraggable(trainmodelShape);
+        ImageView evaluateShape = findViewById(R.id.evaluatemodel_shape);
+        setDraggable(evaluateShape);
+        ImageView launchmodelShape = findViewById(R.id.launchmodel_shape);
+        setDraggable(launchmodelShape);
         drawingSurface = (DrawingSurface) findViewById(R.id.drawingSurface);
 
       //  databaseHelper = new DatabaseHelper(getContext());
@@ -104,12 +92,6 @@ public class DrawingActivity extends AppCompatActivity {
             }
             if (shapeToDelete.getOtherPreviousShape() != null){
                 shapeToDelete.getOtherPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
-            }
-            if (shapeToDelete.getShapetype() == Shape.SHAPETYPE.WHILE){
-                WhileShape whileShape = (WhileShape) shapeToDelete;
-                if (whileShape.getEndOfWhileShape() != null){
-                    whileShape.getEndOfWhileShape().removeLine(whileShape, Line.POSITION.TOP_RIGHT_CORNER);
-                }
             }
             drawingSurface.getShapes().remove(drawingSurface.getSelectedShape());
             drawingSurface.setSelectedShape(null);

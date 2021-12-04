@@ -83,11 +83,8 @@ public class Line {
             default:
                 x1 = firstShape.getShapeOrigin().getX();
                 x2 = secondShape.getShapeOrigin().getX();
-                if (firstShape.getShapetype() == Shape.SHAPETYPE.OUTPUT){
-                    y1 += firstShape.getHeigth()/3;
-                } else {
+
                     y1 += firstShape.getHeigth()/2;
-                }
                 y2 = secondShape.getShapeOrigin().getY();
                 switch (secondPosition){
                     case TOP_RIGHT_CORNER:

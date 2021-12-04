@@ -18,11 +18,14 @@
     <string name="drawer_open_description">Drawer opened.</string>
     <string name="drawer_close_description">Drawer closed.</string>
 
-    <string name="start">START</string>
-    <string name="input">INPUT</string>
-    <string name="condition">CONDITION</string>
-    <string name="process">PROCESS</string>
-    <string name="output">OUTPUT</string>
+    <string name="preprocessing">PREPROCESSING</string>
+    <string name="dataloading">DATALOADING</string>
+    <string name="datavisualization">DATAVISUALIZATION</string>
+    <string name="buildmodel">BUILDMODEL</string>
+    <string name="trainmodel">TRAINMODEL</string>
+    <string name="evaluatemodel">EVALUATEMODEL</string>
+    <string name="launchmodel">LAUNCHMODEL</string>
+
     <string name="title_activity_scrolling_steps">ScrollingActivity_Steps</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

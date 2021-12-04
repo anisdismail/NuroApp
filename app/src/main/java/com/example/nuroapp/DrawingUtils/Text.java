@@ -53,13 +53,9 @@ public class Text {
     }
 
     private void setTextSizeForWidth(float desiredWidth, float desiredHeight) {
-        if (shape.getShapetype() == Shape.SHAPETYPE.CONDITION || shape.getShapetype() == Shape.SHAPETYPE.OUTPUT || string.length() < 3){
-            desiredHeight /= BIG_HEIGHT_PADDING_FACTOR;
-            desiredWidth /= BIG_WIDTH_PADDING_FACTOR;
-        } else {
+
             desiredHeight /= SMALL_HEIGHT_PADDING_FACTOR;
             desiredWidth /= SMALL_WIDTH_PADDING_FACTOR;
-        }
 
         textPaint.setTextSize(TEXT_TEST_SIZE);
         Rect bounds = new Rect();
