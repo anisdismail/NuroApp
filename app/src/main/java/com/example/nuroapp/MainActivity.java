@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.nuroapp.MainActivityFragments.FlowchartsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     private String latestTitle;
 
-    FlowchartsFragment flowchartsFragment;
-
     Button ImageDetectionBtn;
 
 
@@ -35,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.content_frame, new FlowchartsFragment()).commit();
+        //fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.add(R.id.content_frame, new FlowchartsFragment()).commit();
        actionBar = getSupportActionBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,

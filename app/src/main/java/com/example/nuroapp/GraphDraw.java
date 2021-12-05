@@ -11,7 +11,6 @@ public class GraphDraw extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph_draw);
 
         Graph g = new Graph.Builder(5)
                 .setEdge(1,2) // set edge between first node and second node.
