@@ -1,14 +1,13 @@
-package ir.shahinsoft.graphdraw.graph;
+package com.example.nuroapp.GraphUtils.graph;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
-import java.util.ArrayList;
+import com.example.nuroapp.GraphUtils.model.Graph;
+import com.example.nuroapp.GraphUtils.model.Node;
 
-import ir.shahinsoft.graphdraw.model.Graph;
-import ir.shahinsoft.graphdraw.model.Node;
+import java.util.ArrayList;
 
 public class BinaryTree extends Graph {
 

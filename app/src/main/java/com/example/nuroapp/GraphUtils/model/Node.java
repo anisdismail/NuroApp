@@ -1,4 +1,4 @@
-package ir.shahinsoft.graphdraw.model;
+package com.example.nuroapp.GraphUtils.model;
 
 import android.graphics.Color;
 

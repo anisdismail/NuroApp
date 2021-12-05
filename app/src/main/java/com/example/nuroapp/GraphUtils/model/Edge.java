@@ -1,26 +1,26 @@
-package ir.shahinsoft.graphdraw.model;
+package com.example.nuroapp.GraphUtils.model;
 
 import android.graphics.Color;
 
 public class Edge {
 
-    public static Edge createEdge(int startNodeId,int endNodeId){
+    public static Edge createEdge(int startNodeId, int endNodeId){
         return new Edge(startNodeId,endNodeId);
     }
 
-    public static Edge createEdgeWithWeight(int startNodeId,int endNodeId,int weight){
+    public static Edge createEdgeWithWeight(int startNodeId, int endNodeId, int weight){
         return new Edge(startNodeId,endNodeId,weight);
     }
 
-    public static Edge createEdgeWithColor(int startNodeId,int endNodeId, int color){
+    public static Edge createEdgeWithColor(int startNodeId, int endNodeId, int color){
         return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,false,color);
     }
 
-    public static Edge createDirectedEdge(int startNodeId,int endNodeId){
+    public static Edge createDirectedEdge(int startNodeId, int endNodeId){
         return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,true);
     }
 
-    public static Edge createDirectedEdgeWithColor(int startNodeId,int endNodeId,int color){
+    public static Edge createDirectedEdgeWithColor(int startNodeId, int endNodeId, int color){
         return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,true,color);
     }
 

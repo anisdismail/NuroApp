@@ -1,10 +1,9 @@
-package ir.shahinsoft.graphdraw.graph;
+package com.example.nuroapp.GraphUtils.graph;
+
+import com.example.nuroapp.GraphUtils.model.Graph;
+import com.example.nuroapp.GraphUtils.model.Node;
 
 import java.util.ArrayList;
-
-import ir.shahinsoft.graphdraw.model.Edge;
-import ir.shahinsoft.graphdraw.model.Graph;
-import ir.shahinsoft.graphdraw.model.Node;
 
 public class KReqular extends Graph {
 

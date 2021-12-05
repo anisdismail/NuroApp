@@ -1,18 +1,17 @@
-package ir.shahinsoft.graphdraw.graph;
-
-import android.graphics.Color;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
-
-import java.util.Random;
-
-import ir.shahinsoft.graphdraw.model.Edge;
-import ir.shahinsoft.graphdraw.model.Graph;
-import ir.shahinsoft.graphdraw.model.Node;
+package com.example.nuroapp.GraphUtils.graph;
 
 import static java.lang.Math.min;
 import static java.lang.Math.pow;
+
+import android.graphics.Color;
+import android.view.View;
+import android.view.ViewTreeObserver;
+
+import com.example.nuroapp.GraphUtils.model.Edge;
+import com.example.nuroapp.GraphUtils.model.Graph;
+import com.example.nuroapp.GraphUtils.model.Node;
+
+import java.util.Random;
 
 public class Cube extends Graph {
 

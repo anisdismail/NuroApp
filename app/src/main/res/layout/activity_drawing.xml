@@ -58,17 +58,17 @@
                     android:id="@+id/trainmodel_shape"
                     style="@style/ShapeTheme"
                     android:src="@drawable/trainmodel"/>
-
-                <ImageView
-                    android:tag="@string/evaluatemodel"
-                    android:id="@+id/evaluatemodel_shape"
-                    style="@style/ShapeTheme"
-                    android:src="@drawable/evaluatemodel"/>
                 <ImageView
                     android:tag="@string/launchmodel"
                     android:id="@+id/launchmodel_shape"
                     style="@style/ShapeTheme"
                     android:src="@drawable/launchmodel"/>
+                <ImageView
+                    android:tag="@string/evaluatemodel"
+                    android:id="@+id/evaluatemodel_shape"
+                    style="@style/ShapeTheme"
+                    android:src="@drawable/evaluatemodel"/>
+
             </LinearLayout>
 
         </HorizontalScrollView>

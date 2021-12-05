@@ -66,7 +66,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
     private static final String buildmodel = Shape.SHAPETYPE.BUILDMODEL.toString();
     private static final String trainmodel = Shape.SHAPETYPE.TRAINMODEL.toString();
     private static final String evaluatemodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
-    private static final String launchmodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
+    private static final String launchmodel = Shape.SHAPETYPE.LAUNCHMODEL.toString();
 
     private int nextId;
     private boolean hideLines = false;
@@ -81,7 +81,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(16f);
-        scaleFactor = 0.237f;
+        scaleFactor = 0.25f;
         posX = 0;
         posY = 0;
         setOnDragListener(this);
@@ -125,7 +125,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
     }
 
     public void addShape (Shape.SHAPETYPE shapetype, int x, int y){
-        float usefulScale = scaleFactor * 3.5f;
+        float usefulScale = 1.625F;
         float[] coords = new float[2];
 
         coords[0] = x;
@@ -275,8 +275,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
                 addShape(Shape.SHAPETYPE.EVALUATEMODEL, cX, cY);
             } else if (dragData.equals(buildmodel)){
                 addShape(Shape.SHAPETYPE.BUILDMODEL, cX, cY);
-            }
-            else if (dragData.equals(launchmodel)){
+            } else if (dragData.equals(launchmodel)){
                 addShape(Shape.SHAPETYPE.LAUNCHMODEL, cX, cY);
             }
         }

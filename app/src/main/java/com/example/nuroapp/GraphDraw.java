@@ -3,10 +3,8 @@ package com.example.nuroapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 
-import ir.shahinsoft.graphdraw.GraphView;
-import ir.shahinsoft.graphdraw.model.Graph;
+import com.example.nuroapp.GraphUtils.model.Graph;
 
 public class GraphDraw extends AppCompatActivity {
 
@@ -27,8 +25,7 @@ public class GraphDraw extends AppCompatActivity {
                 .setNodeLabel("node1",0) // set label 'node1' to node with id=0
                 .build();
         g.setDragable(true);
-        GraphView graphView = (GraphView) findViewById(R.id.graphView);;
-        graphView.setGraph(g);
+
     }
 
 }
