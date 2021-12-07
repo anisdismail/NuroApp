@@ -7,15 +7,10 @@ import java.util.Arrays;
 
 public class Graph {
 
-    private boolean autoId = false;
-
-    private boolean dragable = false;
-
     private ArrayList<Node> nodes;
     private ArrayList<Edge> edges;
 
     private Edge[][] graph;
-    private View view;
 
     public Graph() {
         nodes = new ArrayList<>();
@@ -51,7 +46,15 @@ public class Graph {
     }
 
     public void removeNode(Node node) {
+        ArrayList<Edge> edgesCopy= (ArrayList<Edge>) edges.clone();
         nodes.remove(node);
+        for(Edge edge:edgesCopy){
+            if(edge.getStartNodeId()==node.getId() || edge.getEndNodeId()==node.getId()){
+                removeEdge(edge);
+            }
+
+        }
+        edges= (ArrayList<Edge>) edgesCopy.clone();
     }
 
     public void addEdge(Edge edge) {
@@ -84,23 +87,15 @@ public class Graph {
         updateDegree(edge,true);
         return edge;
     }
-
-    public void setView(View view) {
-        //do nothing
-        this.view = view;
-    }
-
-    public void setDragable(boolean dragable) {
-        this.dragable = dragable;
-    }
-
-    public boolean isDragable() {
-        return dragable;
-    }
-
-    public View getView() {
-        return view;
-    }
+  public ArrayList<Node> getNeigbors(Node node){
+   ArrayList<Node> neighbors=new ArrayList<>();
+      for(Edge edge:edges){
+          if(edge.getStartNodeId()==node.getId()){
+              neighbors.add(findNode(edge.getEndNodeId()));
+          }
+      }
+      return neighbors;
+  };
 
     /**
      * creates the graph and sets every parameters.
@@ -145,16 +140,6 @@ public class Graph {
         return null;
     }
 
-    public void setFocusForNode(int id) {
-        for (Node node : nodes) {
-            if (node.getId() == id) {
-                node.setFocus();
-            } else {
-                node.removeFocus();
-            }
-        }
-    }
-
     public boolean isEmpty() {
         return nodes.isEmpty();
     }
@@ -163,8 +148,6 @@ public class Graph {
         Node[] nodes;
         ArrayList<Edge> edges;
         private boolean isDirected;
-        private boolean dragable = false;
-
         public Builder(int nodeCount) {
             nodes = new Node[nodeCount];
             for (int i = 0; i < nodeCount; i++) {
@@ -175,12 +158,6 @@ public class Graph {
 
         public Builder setEdge(int start, int end) {
             setEdge(start, end, Edge.DEFAULT_WEIGHT);
-            return this;
-        }
-
-        public Builder setNodePosition(int id, int x, int y) {
-            nodes[id].setRelativePositionX(x);
-            nodes[id].setRelativePositionY(y);
             return this;
         }
 
@@ -200,11 +177,6 @@ public class Graph {
             return this;
         }
 
-        public Builder setDragable(boolean dragable) {
-            this.dragable = dragable;
-            return this;
-        }
-
 
         public Graph build() {
             Graph graph = new Graph();
@@ -215,9 +187,13 @@ public class Graph {
                     edge.setDirected(true);
                 }
             }
-            graph.setDragable(dragable);
             return graph;
         }
+
+    }
+    public void reset(){
+        nodes.clear();
+        edges.clear();
 
     }
 }

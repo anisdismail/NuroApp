@@ -85,18 +85,8 @@ public class DrawingActivity extends AppCompatActivity {
     }
 
     public void setDeleteButton (View view){
-        Shape shapeToDelete = drawingSurface.getSelectedShape();
-        if (shapeToDelete != null){
-            if (shapeToDelete.getPreviousShape() != null){
-                shapeToDelete.getPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
-            }
-            if (shapeToDelete.getOtherPreviousShape() != null){
-                shapeToDelete.getOtherPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
-            }
-            drawingSurface.getShapes().remove(drawingSurface.getSelectedShape());
-            drawingSurface.setSelectedShape(null);
-            drawingSurface.invalidate();
-        }
+        drawingSurface.deleteShape();
+
     }
 
     public void setSaveButton (View view){
@@ -111,8 +101,9 @@ public class DrawingActivity extends AppCompatActivity {
         }
     */
     }
-
-
+    public void runButton(View view){
+    drawingSurface.validateSequence();
+    }
     public void setImageButton (View view){
         saveImage();
     }
@@ -141,6 +132,10 @@ public class DrawingActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
         }
         drawingSurface.prepareToSaveAsImage(false);
+    }
+
+    public void resetButton(View view) {
+        drawingSurface.reset();
     }
 
 /*    private class LoadDiagramDataTask extends AsyncTask<Void, Void, Void> {

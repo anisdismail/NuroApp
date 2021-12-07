@@ -12,30 +12,19 @@ public class Edge {
         return new Edge(startNodeId,endNodeId,weight);
     }
 
-    public static Edge createEdgeWithColor(int startNodeId, int endNodeId, int color){
-        return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,false,color);
-    }
-
     public static Edge createDirectedEdge(int startNodeId, int endNodeId){
         return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,true);
     }
 
-    public static Edge createDirectedEdgeWithColor(int startNodeId, int endNodeId, int color){
-        return new Edge(startNodeId,endNodeId,DEFAULT_WEIGHT,true,color);
-    }
-
-
-    public static int DEFAULT_COLOR = Color.BLACK;
     public static int DEFAULT_WEIGHT = 1;
 
     private int weight;
-    private int color;
     private int startNodeId;
     private int endNodeId;
     private boolean isDirected;
 
     public Edge(int startNodeId,int endNodeId){
-        this(startNodeId,endNodeId,1);
+        this(startNodeId,endNodeId,1,false);
     }
 
     public Edge(int startNodeId,int endNodeId,int weight){
@@ -43,20 +32,13 @@ public class Edge {
     }
 
     public Edge(int startNodeId,int endNodeId,int weight,boolean isDirected){
-        this(startNodeId,endNodeId,weight,isDirected,DEFAULT_COLOR);
-    }
-
-    public Edge(int startNodeId,int endNodeId,int weight,boolean isDirected,int color){
         this.startNodeId = startNodeId;
         this.endNodeId   = endNodeId;
         this.weight      = weight;
         this.isDirected  = isDirected;
-        this.color       = color;
     }
 
-    public int getColor() {
-        return color;
-    }
+
 
     public int getEndNodeId() {
         return endNodeId;
@@ -66,12 +48,18 @@ public class Edge {
         return startNodeId;
     }
 
-    public int getWeight() {
-        return weight;
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "weight=" + weight +
+                ", startNodeId=" + startNodeId +
+                ", endNodeId=" + endNodeId +
+                ", isDirected=" + isDirected +
+                '}';
     }
 
-    public void setColor(int color) {
-        this.color = color;
+    public int getWeight() {
+        return weight;
     }
 
     public void setDirected(boolean directed) {
@@ -97,7 +85,6 @@ public class Edge {
     public class Builder {
 
         private int weight         = DEFAULT_WEIGHT;
-        private int color          = DEFAULT_COLOR;
         private int startNodeId    ;
         private int endNodeId      ;
         private boolean isDirected = false;
@@ -112,18 +99,13 @@ public class Edge {
             return this;
         }
 
-        public Builder setColor(int color){
-            this.color = color;
-            return this;
-        }
-
         public Builder directed(){
             this.isDirected = true;
             return this;
         }
 
         public Edge build(){
-            return new Edge(startNodeId,endNodeId,weight,isDirected,color);
+            return new Edge(startNodeId,endNodeId,weight,isDirected);
         }
 
 

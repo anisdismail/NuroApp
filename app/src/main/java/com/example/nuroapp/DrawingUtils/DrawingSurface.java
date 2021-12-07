@@ -10,6 +10,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 
 import android.app.AlertDialog;
+import android.graphics.PorterDuff;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -22,6 +23,9 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 
 import com.example.nuroapp.DrawingActivity;
+import com.example.nuroapp.GraphUtils.model.Edge;
+import com.example.nuroapp.GraphUtils.model.Graph;
+import com.example.nuroapp.GraphUtils.model.Node;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +57,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
     private Canvas canvas;
     private Bitmap bitmap;
 
-
+    private Graph graph;
     private static final int MAX_CLICK_DURATION = 150;
     private static final int MIN_COORDINATE = -3000;
     private static final int MAX_COORDINATE = 3000;
@@ -68,6 +72,10 @@ public class DrawingSurface extends View implements View.OnDragListener {
     private static final String evaluatemodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
     private static final String launchmodel = Shape.SHAPETYPE.LAUNCHMODEL.toString();
 
+   // private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString(),
+     //       Shape.SHAPETYPE.DATAVISUALIZATION.toString(),Shape.SHAPETYPE.BUILDMODEL.toString(),
+       //     Shape.SHAPETYPE.TRAINMODEL.toString(), Shape.SHAPETYPE.EVALUATEMODEL.toString(),Shape.SHAPETYPE.LAUNCHMODEL.toString()  };
+   private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString()};
     private int nextId;
     private boolean hideLines = false;
 
@@ -86,6 +94,8 @@ public class DrawingSurface extends View implements View.OnDragListener {
         posY = 0;
         setOnDragListener(this);
         nextId = 0;
+        graph = new Graph();
+
     }
 
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -103,7 +113,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
         posY = Math.min(MAX_COORDINATE, Math.max(MIN_COORDINATE, posY));
         canvas.translate(posX, posY);
         canvas.scale(scaleFactor, scaleFactor);
-        if (!hideLines){
+        if (!hideLines) {
             paint.setColor(Color.GRAY);
             for (int a = -10; a < 10; a++) {
                 for (int b = -10; b < 10; b++) {
@@ -113,18 +123,22 @@ public class DrawingSurface extends View implements View.OnDragListener {
             }
             paint.setColor(Color.BLACK);
         }
-        for (Shape shape : shapes){
+        for (Shape shape : shapes) {
             shape.drawThis();
         }
         canvas.restore();
     }
 
-    public void reset (){
+    public void reset() {
         shapes.clear();
+        graph.reset();
+        for(Shape shape:shapes){
+            deleteShape(shape);
+        }
         invalidate();
     }
 
-    public void addShape (Shape.SHAPETYPE shapetype, int x, int y){
+    public void addShape(Shape.SHAPETYPE shapetype, int x, int y) {
         float usefulScale = 1.625F;
         float[] coords = new float[2];
 
@@ -141,14 +155,15 @@ public class DrawingSurface extends View implements View.OnDragListener {
         int w = Math.round(this.getWidth());
 
 
-            shapes.add(new Shape(context,this, x, y, l, w, shapetype, nextId));
-
+        shapes.add(new Shape(context, this, x, y, l, w, shapetype, nextId));
+        Node node=Node.createNodeWithLabel(nextId,shapetype.toString());
+        graph.addNode(node);
         nextId++;
         invalidate();
     }
 
-    public void select (Shape newShape){
-        if (selectedShape != null){
+    public void select(Shape newShape) {
+        if (selectedShape != null) {
             selectedShape.setSelect(false);
             selectedShape = null;
         }
@@ -156,7 +171,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
         selectedShape.setSelect(true);
     }
 
-    public boolean onTouchEvent (MotionEvent event){
+    public boolean onTouchEvent(MotionEvent event) {
         scaleGestureDetector.setQuickScaleEnabled(true);
         scaleGestureDetector.onTouchEvent(event);
         final int action = event.getAction();
@@ -179,7 +194,7 @@ public class DrawingSurface extends View implements View.OnDragListener {
         cX = Math.round(coords[0]);
         cY = Math.round(coords[1]);
 
-        switch (action & MotionEvent.ACTION_MASK){
+        switch (action & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
                 startClickTime = Calendar.getInstance().getTimeInMillis();
                 isZooming = false;
@@ -188,12 +203,12 @@ public class DrawingSurface extends View implements View.OnDragListener {
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
-                if (scaleGestureDetector.isInProgress()){
+                if (scaleGestureDetector.isInProgress()) {
                     isZooming = true;
-                } else if (!isZooming){
+                } else if (!isZooming) {
                     final int dX = (x - lastX);
                     final int dY = (y - lastY);
-                    if (selectedShape != null){
+                    if (selectedShape != null) {
                         selectedShape.translate(Math.round(dX / scaleFactor), Math.round(dY / scaleFactor));
                     } else {
                         posX += dX;
@@ -207,28 +222,29 @@ public class DrawingSurface extends View implements View.OnDragListener {
             }
             case MotionEvent.ACTION_UP: {
                 long clickDuration = Calendar.getInstance().getTimeInMillis() - startClickTime;
-                if (clickDuration < MAX_CLICK_DURATION && !scaleGestureDetector.isInProgress()){
-                    // Kullanıcı sadece dokundu. Nereye dokunduğuna bakılmalı.
+                if (clickDuration < MAX_CLICK_DURATION && !scaleGestureDetector.isInProgress()) {
                     boolean touchedAShape = false;
                     boolean addedTextOrLine = false;
                     Shape lastShape;
-                    // Bir şekle dokunduysa o şekil seçili olmalı.
-                    for (Shape shape : shapes){
-                        if (shape.contains(new Point(cX, cY))){
-                            if (selectedShape != null){
+
+                    for (Shape shape : shapes) {
+                        if (shape.contains(new Point(cX, cY))) {
+                            if (selectedShape != null) {
                                 addedTextOrLine = true;
-                                if (selectedShape == shape){
-                                  //  getShapeTextInput(shape);
+                                if (selectedShape == shape) {
+                                    //  getShapeTextInput(shape);
                                 } else {
                                     selectedShape.setLine(shape);
+                                    Edge edge= Edge.createEdge(selectedShape.getId(),shape.getId());
+                                    graph.addEdge(edge);
                                 }
                             }
                             select(shape);
                             touchedAShape = true;
                         }
                     }
-                    // Boş alana dokunuldu, önceden seçilmiş olan şekil artık seçili olmamalı.
-                    if ((!touchedAShape) || addedTextOrLine){
+
+                    if ((!touchedAShape) || addedTextOrLine) {
                         if (selectedShape != null) selectedShape.setSelect(false);
                         selectedShape = null;
                     }
@@ -236,12 +252,15 @@ public class DrawingSurface extends View implements View.OnDragListener {
                 invalidate();
             }
         }
+       // System.out.println(graph.getEdges());
+       // System.out.println(graph.getNodes());
+
         return true;
     }
 
     @Override
     public boolean onDrag(View view, DragEvent dragEvent) {
-        if (dragEvent.getAction() == DragEvent.ACTION_DROP){
+        if (dragEvent.getAction() == DragEvent.ACTION_DROP) {
 
             float[] coords = new float[2];
             coords[0] = dragEvent.getX();
@@ -263,29 +282,102 @@ public class DrawingSurface extends View implements View.OnDragListener {
 
             ClipData.Item item = dragEvent.getClipData().getItemAt(0);
             String dragData = item.getText().toString();
-            if (dragData.equals(preprocessing)){
+            if (dragData.equals(preprocessing)) {
                 addShape(Shape.SHAPETYPE.PREPROCESSING, cX, cY);
             } else if (dragData.equals(datavisualization)) {
                 addShape(Shape.SHAPETYPE.DATAVISUALIZATION, cX, cY);
-            } else if (dragData.equals(dataloading)){
+            } else if (dragData.equals(dataloading)) {
                 addShape(Shape.SHAPETYPE.DATALOADING, cX, cY);
-            } else if (dragData.equals(trainmodel)){
+            } else if (dragData.equals(trainmodel)) {
                 addShape(Shape.SHAPETYPE.TRAINMODEL, cX, cY);
-            } else if (dragData.equals(evaluatemodel)){
+            } else if (dragData.equals(evaluatemodel)) {
                 addShape(Shape.SHAPETYPE.EVALUATEMODEL, cX, cY);
-            } else if (dragData.equals(buildmodel)){
+            } else if (dragData.equals(buildmodel)) {
                 addShape(Shape.SHAPETYPE.BUILDMODEL, cX, cY);
-            } else if (dragData.equals(launchmodel)){
+            } else if (dragData.equals(launchmodel)) {
                 addShape(Shape.SHAPETYPE.LAUNCHMODEL, cX, cY);
             }
         }
         return true;
     }
 
+    public void deleteShape() {
+        Shape shapeToDelete = selectedShape;
+        if (shapeToDelete != null){
+            if (shapeToDelete.getPreviousShape() != null){
+                shapeToDelete.getPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
+            }
+            if (shapeToDelete.getOtherPreviousShape() != null){
+                shapeToDelete.getOtherPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
+            }
+
+            shapes.remove(selectedShape);
+            graph.removeNode(graph.findNode(selectedShape.getId()));
+            selectedShape=null;
+            invalidate();
+        }
+    }
+    public void deleteShape(Shape shape) {
+        Shape shapeToDelete = shape;
+        if (shapeToDelete != null){
+            if (shapeToDelete.getPreviousShape() != null){
+                shapeToDelete.getPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
+            }
+            if (shapeToDelete.getOtherPreviousShape() != null){
+                shapeToDelete.getOtherPreviousShape().removeLine(shapeToDelete, Line.POSITION.TOP);
+            }
+
+            shapes.remove(shapeToDelete);
+            graph.removeNode(graph.findNode(shapeToDelete.getId()));
+            selectedShape=null;
+            invalidate();
+        }
+    }
+
+    public void validateSequence() {
+        System.out.println(graph.getEdges());
+        System.out.println(graph.getNodes());
+
+        int seqCounter=0;
+        if(!graph.isEmpty()){
+        Node start=graph.getNodes().get(0);
+        if(start.getLabel().equals(sequence[seqCounter])){
+            seqCounter++;
+        }else{
+            //show an error
+            System.out.println("Failed!");
+            return;
+        }
+        ArrayList<Node> neighbors=graph.getNeigbors(start);
+       while(!neighbors.isEmpty() && seqCounter<sequence.length){
+           Node node=neighbors.get(0);
+            System.out.println(neighbors);
+            if(node.getLabel().equals(sequence[seqCounter]) && neighbors.size()==1){
+                seqCounter++;
+                System.out.println("here");
+            }else{
+                //show an error
+                System.out.println("Failed!");
+                return;
+            }
+            neighbors=graph.getNeigbors(node);
+
+        }
+
+if(seqCounter==sequence.length && graph.getNodes().size()==sequence.length){
+    //show congrats....
+    System.out.println("Congrats!");
+}else{
+    //show an error
+    System.out.println("Failed!");
+}
+        }
+    }
+
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
-            if (selectedShape != null){
+            if (selectedShape != null) {
                 float shapeScaleFactor = detector.getScaleFactor();
                 selectedShape.scale(shapeScaleFactor);
             } else {
@@ -297,31 +389,31 @@ public class DrawingSurface extends View implements View.OnDragListener {
         }
     }
 
-/*    private void getShapeTextInput (final Shape shape){
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Enter some text.");
-        final EditText shapeTextEditText = new EditText(context);
-        shapeTextEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(shapeTextEditText);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String shapeString = shapeTextEditText.getText().toString();
-                shape.setText(new Text(DrawingSurface.this, shape, shapeString));
+    /*    private void getShapeTextInput (final Shape shape){
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Enter some text.");
+            final EditText shapeTextEditText = new EditText(context);
+            shapeTextEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(shapeTextEditText);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String shapeString = shapeTextEditText.getText().toString();
+                    shape.setText(new Text(DrawingSurface.this, shape, shapeString));
 
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
 
-        builder.show();
-    }
-*/
-    public void prepareToSaveAsImage (boolean hideLines){
+            builder.show();
+        }
+    */
+    public void prepareToSaveAsImage(boolean hideLines) {
         this.hideLines = hideLines;
         invalidate();
         /*
@@ -345,23 +437,23 @@ public class DrawingSurface extends View implements View.OnDragListener {
         */
     }
 
- /*   public String getDiagramData (){
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        Type type = new TypeToken<ArrayList<Shape>>(){}.getType();
-        String data = gson.toJson(shapes, type);
-        return data;
-    }
+    /*   public String getDiagramData (){
+           Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+           Type type = new TypeToken<ArrayList<Shape>>(){}.getType();
+           String data = gson.toJson(shapes, type);
+           return data;
+       }
 
-    public void setDiagramData (String jShapes, String jLines){
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        Type type = new TypeToken<ArrayList<Shape>>(){}.getType();
-        shapes = gson.fromJson(jShapes, type);
-        invalidate();
-    }
-*/
-    public Shape getShape (int id){
-        for (Shape shape : shapes){
-            if (shape.getId() == id){
+       public void setDiagramData (String jShapes, String jLines){
+           Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+           Type type = new TypeToken<ArrayList<Shape>>(){}.getType();
+           shapes = gson.fromJson(jShapes, type);
+           invalidate();
+       }
+   */
+    public Shape getShape(int id) {
+        for (Shape shape : shapes) {
+            if (shape.getId() == id) {
                 return shape;
             }
         }

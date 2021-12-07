@@ -88,6 +88,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:onClick="setSaveButton"
+                android:id="@+id/saveButton"
+                style="@style/ShapeTheme"
+                android:src="@drawable/ic_save"/>
+            <ImageView
+                android:onClick="runButton"
+                android:id="@+id/runButton"
+                style="@style/ShapeTheme"
+                android:src="@drawable/ic_play" />
 
             <ImageView
                 android:onClick="setDeleteButton"
@@ -96,16 +106,11 @@
                 android:src="@drawable/ic_delete"/>
 
             <ImageView
-                android:onClick="setImageButton"
-                android:id="@+id/pngButton"
+                android:onClick="resetButton"
+                android:id="@+id/resetButton"
                 style="@style/ShapeTheme"
-                android:src="@drawable/ic_image" />
+                android:src="@drawable/ic_reset" />
 
-            <ImageView
-                android:onClick="setSaveButton"
-                android:id="@+id/saveButton"
-                style="@style/ShapeTheme"
-                android:src="@drawable/ic_save"/>
 
         </LinearLayout>
 
