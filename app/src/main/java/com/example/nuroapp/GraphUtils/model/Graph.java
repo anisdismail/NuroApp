@@ -4,6 +4,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Graph {
 
@@ -46,15 +48,25 @@ public class Graph {
     }
 
     public void removeNode(Node node) {
-        ArrayList<Edge> edgesCopy= (ArrayList<Edge>) edges.clone();
-        nodes.remove(node);
-        for(Edge edge:edgesCopy){
-            if(edge.getStartNodeId()==node.getId() || edge.getEndNodeId()==node.getId()){
-                removeEdge(edge);
+
+        List<Integer> indices=new ArrayList<>();
+            if(!edges.isEmpty()){
+           for (int i=0;i<edges.size();i++) {
+               if (edges.get(i).getStartNodeId() == node.getId() || edges.get(i).getEndNodeId() == node.getId()) {
+                   indices.add(i);
+               }
+
+           }
+                Collections.sort(indices, Collections.reverseOrder());
+                for(Integer i:indices){
+
+                    edges.remove((int)i);
+                }
             }
 
-        }
-        edges= (ArrayList<Edge>) edgesCopy.clone();
+
+        nodes.remove(node);
+
     }
 
     public void addEdge(Edge edge) {

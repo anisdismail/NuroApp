@@ -13,10 +13,12 @@
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/ic_reset.xml" value="0.10277777777777777" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/input_shape.xml" value="0.1398148148148148" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/drawable/start_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/font/rubik.xml" value="0.28" />
+        <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/font/rubik_medium.xml" value="0.28" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/activity_drawing.xml" value="0.264" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/activity_graph_draw.xml" value="0.1234375" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/activity_steps.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/activity_steps.xml" value="0.264" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/flowchart_thumbnail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/fragment_about.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Hp/Desktop/NuroApp/app/src/main/res/layout/fragment_flowcharts.xml" value="0.13020833333333334" />

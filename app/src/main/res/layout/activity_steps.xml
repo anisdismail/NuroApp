@@ -30,10 +30,12 @@
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
+                android:layout_width="362dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus massa ut sagittis venenatis. Praesent eu efficitur lacus. Morbi semper in magna at semper. In hac habitasse platea dictumst. Maecenas urna urna, imperdiet eu neque vel, congue mollis mi. Etiam a quam bibendum, consequat libero vitae, dapibus lectus. Vivamus condimentum dolor a lectus dictum, aliquam dapibus odio rutrum. Aliquam commodo lacinia consequat.  Curabitur posuere tristique dui non viverra. Mauris tempus sed metus a gravida. Aliquam sit amet sagittis magna. Curabitur euismod libero lacus, at sagittis felis maximus a. Vestibulum placerat faucibus nulla vitae aliquet. Etiam finibus lacus nisi, non commodo est consequat in. Integer a leo rutrum diam commodo placerat sed vel tortor. Proin vel felis ac erat lacinia hendrerit. Fusce finibus mollis mauris, et dictum urna commodo ac. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst.  Proin mollis volutpat pharetra. Nullam rhoncus consectetur magna. Maecenas vel laoreet nulla. In ut sollicitudin ipsum. Morbi quis tortor non diam ultricies consequat a at lacus. Nulla interdum sollicitudin velit, nec venenatis leo maximus vel. Maecenas molestie consectetur sapien, at molestie felis vulputate ut. Vestibulum lobortis sodales porttitor. Aenean commodo vulputate magna, eu ullamcorper dolor feugiat sit amet. Morbi convallis iaculis porta. Sed tempus urna malesuada ipsum lacinia suscipit non ac mauris. Praesent euismod nisi sed dolor dictum rutrum. Mauris quam sapien, tempus vel egestas pretium, elementum sit amet nunc. Quisque nec metus felis. Maecenas sed ipsum ex.  Nam eget diam nisl. Proin id mauris consectetur, laoreet ligula consequat, malesuada sem. Cras et congue velit. Aenean maximus nulla id ante volutpat vehicula. Quisque tristique urna nisl, ut cursus purus aliquam eget. Aenean auctor eu arcu rutrum fringilla. Maecenas iaculis justo vel justo hendrerit ultricies. Maecenas ullamcorper rutrum pharetra.  Etiam ultrices pharetra eros, vitae efficitur eros consequat a. In eget venenatis purus. Nulla iaculis tellus elit, ac auctor quam dignissim vitae. Aenean est lectus, pulvinar in sapien quis, aliquam tristique libero. Integer non arcu blandit, mattis purus eget, suscipit augue. Nam bibendum neque diam, tincidunt venenatis magna laoreet sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc interdum velit quis diam scelerisque, id vestibulum est sodales." />
+                android:text="@string/MLModuleWelcomePage"
+                android:fontFamily=""/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,14 +46,14 @@
 
                 <Button
                     android:id="@+id/buttonBack"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Back" />
 
                 <Button
                     android:id="@+id/buttonNext"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Next" />

@@ -27,26 +27,13 @@ public class StepsActivity extends AppCompatActivity {
 
         AtomicInteger count = new AtomicInteger(1); // count the steps in image detection. we have 7 steps in the google doc
 
-        /*
-        if count =
-        1   Loading the data
-        2   Visualizing the data
-        3   Preprocessing the data (resizing the image, scaling the image by the max value, flattening the image into one array)
-        4   Building the model
-        5   Train loop
-        6   Evaluate model
-        7   Launch model (try with new images/ live with video capture)
-
-
-         */
-
         buttonBack.setOnClickListener(v -> {
             count.getAndDecrement();
             switch (count.intValue()) {
-                case 0:
-                    Intent intent = new Intent(StepsActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    break;
+        //        case 0:
+          //          Intent intent = new Intent(StepsActivity.this, MainActivity.class);
+           //         startActivity(intent);
+           //         break;
                 case 1:
                     //imageView.setImageDrawable();         // change image
                     //textView.setText();                   // change text

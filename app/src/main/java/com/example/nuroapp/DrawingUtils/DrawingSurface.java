@@ -234,9 +234,35 @@ public class DrawingSurface extends View implements View.OnDragListener {
                                 if (selectedShape == shape) {
                                     //  getShapeTextInput(shape);
                                 } else {
+
+                                    //delete the edge to the old shape if found
+                                    Node selectedShapeNode=graph.findNode(selectedShape.getId());
+                                    for (int i=0;i<graph.getEdges().size();i++) {
+                                        if (graph.getEdges().get(i).getStartNodeId() == selectedShapeNode.getId()) {
+                                            graph.removeEdge(graph.getEdges().get(i));
+                                        }
+
+                                    }
+                                    //delete the edge to the previous of shape
+                                    Node shapeNode=graph.findNode(shape.getId());
+                                    for (int i=0;i<graph.getEdges().size();i++) {
+                                        if (graph.getEdges().get(i).getEndNodeId() == shapeNode.getId()) {
+                                            graph.removeEdge(graph.getEdges().get(i));
+                                        }
+                                    }
+                                    //shape delete any old edge between the two shapes
+                                    for (int i=0;i<graph.getEdges().size();i++) {
+                                        if (graph.getEdges().get(i).getStartNodeId() == shapeNode.getId() &&
+                                                graph.getEdges().get(i).getEndNodeId() == selectedShapeNode.getId() ) {
+                                            graph.removeEdge(graph.getEdges().get(i));
+                                        }
+                                    }
                                     selectedShape.setLine(shape);
                                     Edge edge= Edge.createEdge(selectedShape.getId(),shape.getId());
                                     graph.addEdge(edge);
+
+
+
                                 }
                             }
                             select(shape);
@@ -252,8 +278,6 @@ public class DrawingSurface extends View implements View.OnDragListener {
                 invalidate();
             }
         }
-       // System.out.println(graph.getEdges());
-       // System.out.println(graph.getNodes());
 
         return true;
     }
