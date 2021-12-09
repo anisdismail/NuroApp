@@ -20,6 +20,14 @@
         </activity>
         <activity android:name=".DrawingActivity" />
         <activity android:name=".StepsActivity" />
+
+        <!--Preload custom fonts-->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts"/>
+        <meta-data
+            android:name="fontProviderRequests"
+            android:value="Rubik"/>
     </application>
 
 </manifest>

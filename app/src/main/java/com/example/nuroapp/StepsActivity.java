@@ -35,18 +35,21 @@ public class StepsActivity extends AppCompatActivity {
            //         startActivity(intent);
            //         break;
                 case 1:
-                    //imageView.setImageDrawable();         // change image
-                    //textView.setText();                   // change text
                     break;
                 case 2:
+                    textView.setText(getString(R.string.MLDefinition));
                     break;
                 case 3:
+                    textView.setText(getString(R.string.IngredientsofML));
                     break;
                 case 4:
+                    textView.setText(getString(R.string.MLTypes));
                     break;
                 case 5:
+                    textView.setText(getString(R.string.MlSteps1));
                     break;
                 case 6:
+                    textView.setText(getString(R.string.MlSteps2));
                     break;
                 case 7:
                     break;
@@ -58,24 +61,25 @@ public class StepsActivity extends AppCompatActivity {
             count.getAndIncrement();
             switch (count.intValue()) {
                 case 1:
-                    //imageView.setImageDrawable();
-                    //textView.setText();
                     break;
                 case 2:
+                    textView.setText(getString(R.string.MLDefinition));
                     break;
                 case 3:
+                    textView.setText(getString(R.string.IngredientsofML));
                     break;
                 case 4:
+                    textView.setText(getString(R.string.MLTypes));
                     break;
                 case 5:
+                    textView.setText(getString(R.string.MlSteps1));
                     break;
                 case 6:
-                    break;
-                case 7:
+                    textView.setText(getString(R.string.MlSteps2));
                     break;
                 default:
                     count.set(7); //to not get back to 8 when back is pressed
-                    Intent intent = new Intent(StepsActivity.this, DrawingActivity.class);
+                    Intent intent= new Intent(StepsActivity.this, DrawingActivity.class);
                     startActivity(intent);
                     break;
             }

@@ -35,7 +35,38 @@ In this module, we will be learning: \n
 - Steps for building a Machine Learning project \n
 And much more! \n
 Let’s dive in! \n
+    </string>
 
+    <string name="MLDefinition">
+       <b> What is Machine Learning?</b> \n
+ML is a type of artificial intelligence (AI) that allows programs to become more accurate at predicting outcomes without being programmed to do so.
+Machine learning algorithms rely on data as input to predict new output values.
+    </string>
+    <string name="IngredientsofML">
+        Ingredients of a Machine Learning Project \n
+-Dataset \n
+-Machine Learning Model \n
+-Training Algorithm
+    </string>
+<string name="MLTypes">
+Main Types of Machine Learning \n
+-Supervised \n
+-regression  \n
+-classification \n
+-Unsupervised \n
+</string>
+    <string name="MlSteps1">
+        Steps for a ML project (part 1) \n
+- Loading the data \n
+- Visualizing the data \n
+- Preprocessing the data \n
+    </string>
+    <string name="MlSteps2">
+        Steps for a ML project (part 2) \n
+- Building the model \n
+- Train loop \n
+- Evaluate model \n
+- Launch model \n
     </string>
     <string name="action_settings">Settings</string>
 </resources>

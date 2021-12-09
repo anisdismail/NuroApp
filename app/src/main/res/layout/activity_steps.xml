@@ -34,8 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/MLModuleWelcomePage"
-                android:fontFamily=""/>
-
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
