@@ -2,6 +2,7 @@ package com.example.nuroapp;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -102,7 +103,14 @@ public class DrawingActivity extends AppCompatActivity {
     */
     }
     public void runButton(View view){
-    drawingSurface.validateSequence();
+        Intent intent;
+        if(drawingSurface.validateSequence()){
+        intent= new Intent(DrawingActivity.this, SuccessActivity.class);
+        startActivity(intent);
+    }else{
+            intent= new Intent(DrawingActivity.this, FailedActivity.class);
+            startActivity(intent);
+        };
     }
     public void setImageButton (View view){
         saveImage();

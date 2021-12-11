@@ -68,5 +68,12 @@ Main Types of Machine Learning \n
 - Evaluate model \n
 - Launch model \n
     </string>
+    <string name="Success">
+Congrats! You completed the module!
+    </string>
+    <string name="Failed">
+Hard luck :( \n
+        Try again!
+    </string>
     <string name="action_settings">Settings</string>
 </resources>

@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".DrawingActivity" />
         <activity android:name=".StepsActivity" />
-
+        <activity android:name=".FailedActivity" />
+        <activity android:name=".SuccessActivity" />
         <!--Preload custom fonts-->
         <meta-data
             android:name="preloaded_fonts"

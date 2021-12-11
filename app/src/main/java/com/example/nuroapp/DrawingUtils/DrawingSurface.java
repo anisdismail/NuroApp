@@ -358,19 +358,15 @@ public class DrawingSurface extends View implements View.OnDragListener {
         }
     }
 
-    public void validateSequence() {
-        System.out.println(graph.getEdges());
-        System.out.println(graph.getNodes());
-
+    public boolean validateSequence() {
         int seqCounter=0;
         if(!graph.isEmpty()){
         Node start=graph.getNodes().get(0);
         if(start.getLabel().equals(sequence[seqCounter])){
             seqCounter++;
         }else{
-            //show an error
-            System.out.println("Failed!");
-            return;
+            //failed
+            return false;
         }
         ArrayList<Node> neighbors=graph.getNeigbors(start);
        while(!neighbors.isEmpty() && seqCounter<sequence.length){
@@ -378,24 +374,17 @@ public class DrawingSurface extends View implements View.OnDragListener {
             System.out.println(neighbors);
             if(node.getLabel().equals(sequence[seqCounter]) && neighbors.size()==1){
                 seqCounter++;
-                System.out.println("here");
             }else{
-                //show an error
-                System.out.println("Failed!");
-                return;
+                //failed
+                return false;
             }
             neighbors=graph.getNeigbors(node);
 
         }
 
-if(seqCounter==sequence.length && graph.getNodes().size()==sequence.length){
-    //show congrats....
-    System.out.println("Congrats!");
-}else{
-    //show an error
-    System.out.println("Failed!");
-}
+            return seqCounter == sequence.length && graph.getNodes().size() == sequence.length;
         }
+return false;
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {

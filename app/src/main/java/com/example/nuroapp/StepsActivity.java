@@ -30,10 +30,6 @@ public class StepsActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(v -> {
             count.getAndDecrement();
             switch (count.intValue()) {
-        //        case 0:
-          //          Intent intent = new Intent(StepsActivity.this, MainActivity.class);
-           //         startActivity(intent);
-           //         break;
                 case 1:
                     break;
                 case 2:
