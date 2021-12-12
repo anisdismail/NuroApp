@@ -2,13 +2,16 @@
     <!-- Base application theme. -->
     <style name="Theme.NuroApp" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
+
         <item name="colorPrimary">@color/gray_text</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/silver</item>
+        <item name="android:textColor">@color/gray_text</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
