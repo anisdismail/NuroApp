@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nuroapp.DrawingUtils.Text;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class StepsActivity extends AppCompatActivity {
@@ -23,7 +25,8 @@ public class StepsActivity extends AppCompatActivity {
         Button buttonSkip = findViewById(R.id.buttonSkip);
 
         ImageView imageView = findViewById(R.id.imageView);
-        TextView textView = findViewById(R.id.description);
+         TextView bodyView = findViewById(R.id.description);
+         TextView titleView = findViewById(R.id.title);
 
         AtomicInteger count = new AtomicInteger(1); // count the steps in image detection. we have 7 steps in the google doc
 
@@ -33,19 +36,24 @@ public class StepsActivity extends AppCompatActivity {
                 case 1:
                     break;
                 case 2:
-                    textView.setText(getString(R.string.MLDefinition));
+                    titleView.setText(getString(R.string.MLDefinitionTitle));
+                     bodyView.setText(getString(R.string.MLDefinition));
                     break;
                 case 3:
-                    textView.setText(getString(R.string.IngredientsofML));
+                    titleView.setText(getString(R.string.IngredientsofMLTitle));
+                     bodyView.setText(getString(R.string.IngredientsofML));
                     break;
                 case 4:
-                    textView.setText(getString(R.string.MLTypes));
+                    titleView.setText(getString(R.string.MLTypesTitle));
+                     bodyView.setText(getString(R.string.MLTypes));
                     break;
                 case 5:
-                    textView.setText(getString(R.string.MlSteps1));
+                    titleView.setText(getString(R.string.MlSteps1Title));
+                     bodyView.setText(getString(R.string.MlSteps1));
                     break;
                 case 6:
-                    textView.setText(getString(R.string.MlSteps2));
+                    titleView.setText(getString(R.string.MlSteps2Title));
+                     bodyView.setText(getString(R.string.MlSteps2));
                     break;
                 case 7:
                     break;
@@ -59,19 +67,24 @@ public class StepsActivity extends AppCompatActivity {
                 case 1:
                     break;
                 case 2:
-                    textView.setText(getString(R.string.MLDefinition));
+                    titleView.setText(getString(R.string.MLDefinitionTitle));
+                     bodyView.setText(getString(R.string.MLDefinition));
                     break;
                 case 3:
-                    textView.setText(getString(R.string.IngredientsofML));
+                    titleView.setText(getString(R.string.IngredientsofMLTitle));
+                     bodyView.setText(getString(R.string.IngredientsofML));
                     break;
                 case 4:
-                    textView.setText(getString(R.string.MLTypes));
+                    titleView.setText(getString(R.string.MLTypesTitle));
+                     bodyView.setText(getString(R.string.MLTypes));
                     break;
                 case 5:
-                    textView.setText(getString(R.string.MlSteps1));
+                    titleView.setText(getString(R.string.MlSteps1Title));
+                     bodyView.setText(getString(R.string.MlSteps1));
                     break;
                 case 6:
-                    textView.setText(getString(R.string.MlSteps2));
+                    titleView.setText(getString(R.string.MlSteps2Title));
+                     bodyView.setText(getString(R.string.MlSteps2));
                     break;
                 default:
                     count.set(7); //to not get back to 8 when back is pressed

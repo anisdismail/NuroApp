@@ -29,11 +29,13 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
+                style="@style/TextAppearance.Nuro.Headline5"
                 android:id="@+id/description"
                 android:layout_width="362dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/Success"
+                android:gravity="center"
                 />
 
             <LinearLayout

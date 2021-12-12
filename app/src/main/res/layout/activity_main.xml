@@ -26,6 +26,7 @@ android:layout_height="match_parent">
         android:layout_height="match_parent">
 
         <TextView
+            style="@style/TextAppearance.Nuro.Headline5"
             android:id="@+id/textView"
             android:layout_width="304dp"
             android:layout_height="80dp"

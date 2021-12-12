@@ -1,4 +1,5 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Nuro</string>
     <string name="flowcharts">Flowcharts</string>
     <string name="preferences">Preferences</string>
@@ -27,53 +28,36 @@
     <string name="launchmodel">LAUNCHMODEL</string>
 
     <string name="title_activity_scrolling_steps">ScrollingActivity_Steps</string>
+    <string name="MLModuleWelcomePageTitle">Welcome to the Machine Learning Workflow module!</string>
     <string name="MLModuleWelcomePage">
-Welcome to the Machine Learning Workflow module! \n
-In this module, we will be learning: \n
-- What is Machine Learning \n
-- Types of Machine Learning \n
-- Steps for building a Machine Learning project \n
-And much more! \n
-Let’s dive in! \n
-    </string>
-
+We will be learning:\n- What is Machine Learning\n- Types of Machine Learning\n- Steps for building a ML Project\nAnd much more!\n
+Are you ready? Let’s dive in!</string>
+    <string name="MLDefinitionTitle">What is Machine Learning?</string>
     <string name="MLDefinition">
-       <b> What is Machine Learning?</b> \n
-ML is a type of artificial intelligence (AI) that allows programs to become more accurate at predicting outcomes without being programmed to do so.
+        Machine Learning (ML) is a type of artificial intelligence (AI) that allows programs to become more accurate at predicting outcomes without being programmed to do so.
 Machine learning algorithms rely on data as input to predict new output values.
     </string>
+    <string name="IngredientsofMLTitle">Ingredients of a Machine Learning Project</string>
     <string name="IngredientsofML">
-        Ingredients of a Machine Learning Project \n
--Dataset \n
--Machine Learning Model \n
--Training Algorithm
+-Dataset\n-Machine Learning Model\n-Training Algorithm\n
     </string>
+    <string name="MLTypesTitle">Main Types of Machine Learning</string>
     <string name="MLTypes">
-Main Types of Machine Learning \n
--Supervised \n
--regression  \n
--classification \n
--Unsupervised \n
+-Supervised\n\t-regression\n\t-classification\n-Unsupervised
 </string>
+    <string name="MlSteps1Title">Steps for an ML project (part 1)</string>
     <string name="MlSteps1">
-        Steps for a ML project (part 1) \n
-- Loading the data \n
-- Visualizing the data \n
-- Preprocessing the data \n
+1. Loading the data\n2. Visualizing the data\n3. Preprocessing the data\n
     </string>
+    <string name="MlSteps2Title">Steps for an ML project (part 2)</string>
     <string name="MlSteps2">
-        Steps for a ML project (part 2) \n
-- Building the model \n
-- Train loop \n
-- Evaluate model \n
-- Launch model \n
+4. Building the model\n5. Train loop\n6. Evaluate model\n7. Launch model\n
     </string>
     <string name="Success">
-Congrats! You completed the module!
+Congrats!\nYou have completed the module!
     </string>
     <string name="Failed">
-Hard luck :( \n
-        Try again!
+Hard luck :(\nTry again!
     </string>
     <string name="action_settings">Settings</string>
 </resources>
