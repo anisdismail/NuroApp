@@ -48,7 +48,7 @@ Machine learning algorithms rely on data as input to predict new output values.
 -Machine Learning Model \n
 -Training Algorithm
     </string>
-<string name="MLTypes">
+    <string name="MLTypes">
 Main Types of Machine Learning \n
 -Supervised \n
 -regression  \n

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/gradient_background"/>
+    <item
+        android:width="20px"
+        android:height="20px"
+        android:drawable="@drawable/app_icon2"
+         />
+
+</layer-list>

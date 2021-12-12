@@ -13,9 +13,14 @@
   the License.
   -->
 <resources>
-  <array name="preloaded_fonts" translatable="false">
-    <item>@font/rubik</item>
-    <item>@font/rubik_bold</item>
-    <item>@font/rubik_medium</item>
-  </array>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bungee_inline</item>
+        <item>@font/cutive_mono</item>
+        <item>@font/days_one</item>
+        <item>@font/montserrat_alternates</item>
+        <item>@font/playfair_display</item>
+        <item>@font/rubik</item>
+        <item>@font/rubik_bold</item>
+        <item>@font/rubik_medium</item>
+    </array>
 </resources>
