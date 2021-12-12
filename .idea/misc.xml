@@ -29,7 +29,9 @@
         <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
         <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/font/.xml" value="0.16041666666666668" />
-        <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/Users/mradk/AndroidStudioProjects/NuroApp/app/src/main/res/layout/activity_steps.xml" value="0.1" />
       </map>
     </option>
   </component>
