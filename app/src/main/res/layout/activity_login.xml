@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/silver"
-    android:padding="30dp"
+    android:padding="20dp"
     tools:context=".Login">
 
     <LinearLayout
@@ -90,6 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Login"
+                    android:onClick="signIn"
                     android:textAllCaps="false"
                     android:fontFamily="@font/days_one"
                     android:background="@color/gray_text"
@@ -97,11 +98,13 @@
                     android:layout_marginTop="20dp"/>
 
                 <Button
+                    android:id="@+id/goToSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Create an Account"
+                    android:onClick="callSignUp"
                     android:textAllCaps="false"
-                    android:background="#000000000000"
+                    android:background="#0000"
                     android:textColor="@color/gray_text" />
 
             </LinearLayout>

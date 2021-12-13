@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NuroApp">
         <activity
+            android:name=".SignUp"
+            android:exported="false"
+            android:theme="@style/Theme.NuroApp.NoActionBar" />
+        <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.NuroApp.NoActionBar"/>
         <activity
             android:name=".SplashScreen"
             android:exported="true"
@@ -24,7 +29,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:theme="@style/Theme.MaterialComponents.DayNight"
+            android:exported="false" />
         <activity android:name=".DrawingActivity" />
         <activity android:name=".StepsActivity" />
         <activity android:name=".FailedActivity" />
