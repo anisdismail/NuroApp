@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private String latestTitle;
 
     Button ImageDetectionBtn;
+    Button ImageClassificationBtn;
 
 
 
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 R.string.drawer_open_description, R.string.drawer_close_description) {
 
             public void onDrawerClosed(View view) {
-
                 super.onDrawerClosed(view);
                 if (latestTitle != null && latestTitle.length() > 0) actionBar.setTitle(latestTitle);
                 else actionBar.setTitle(R.string.app_name);
@@ -75,12 +75,15 @@ public class MainActivity extends AppCompatActivity {
                 latestTitle = actionBar.getTitle().toString();
                 switch (menuItem.getItemId()) {
                     case R.id.preferences:
+                        clickSound.start();
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
                     case R.id.help:
+                        clickSound.start();
                         //fragmentTransaction.replace(R.id.content_frame, new HelpFragment()).commit();
                         break;
                     case R.id.about:
+                    {
 
                         AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
                         builder.setTitle(getString(R.string.app_name));
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                         Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
                                         startActivity(intent);
 
-                                    }});
+                                    }});}
                                     //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
                         break;
                                 }
@@ -122,6 +125,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             clickSound.start();
         });
+        ImageClassificationBtn = findViewById(R.id.buttonImgClassification);
+        ImageClassificationBtn.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, StepsActivity.class);
+            startActivity(i);
+            clickSound.start();
+        });
+
     }
 
     @Override
