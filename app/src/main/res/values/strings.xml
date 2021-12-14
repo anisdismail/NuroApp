@@ -30,8 +30,7 @@
     <string name="title_activity_scrolling_steps">ScrollingActivity_Steps</string>
     <string name="MLModuleWelcomePageTitle">Welcome to the Machine Learning Workflow module!</string>
     <string name="MLModuleWelcomePage">
-We will be learning:\n- What is Machine Learning\n- Types of Machine Learning\n- Steps for building a ML Project\nAnd much more!\n
-Are you ready? Let’s dive in!</string>
+We will be learning:\n- What is Machine Learning\n- Types of Machine Learning\n- Steps for building a ML Project\nAnd much more!\nAre you ready? Let’s dive in!</string>
     <string name="MLDefinitionTitle">What is Machine Learning?</string>
     <string name="MLDefinition">
         Machine Learning (ML) is a type of artificial intelligence (AI) that allows programs to become more accurate at predicting outcomes without being programmed to do so.

@@ -29,7 +29,7 @@ android:layout_height="match_parent">
 
             android:id="@+id/textView"
             android:layout_width="304dp"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:gravity="center"
             android:text="Welcome back John Cena, what would you like to learn today?"
             android:textAppearance="@style/TextAppearance.Nuro.Headline5"

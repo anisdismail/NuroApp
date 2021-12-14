@@ -38,10 +38,14 @@ public class StepsActivity extends AppCompatActivity {
             count.getAndDecrement();
             switch (count.intValue()) {
                 case 1:
+                    titleView.setText(getString(R.string.MLModuleWelcomePageTitle));
+                    bodyView.setText(getString(R.string.MLModuleWelcomePage));
+                    imageView.setImageResource(R.drawable.intro);
                     break;
                 case 2:
                     titleView.setText(getString(R.string.MLDefinitionTitle));
                      bodyView.setText(getString(R.string.MLDefinition));
+
                     break;
                 case 3:
                     titleView.setText(getString(R.string.IngredientsofMLTitle));
@@ -72,6 +76,9 @@ public class StepsActivity extends AppCompatActivity {
             count.getAndIncrement();
             switch (count.intValue()) {
                 case 1:
+                    titleView.setText(getString(R.string.MLModuleWelcomePageTitle));
+                    bodyView.setText(getString(R.string.MLModuleWelcomePage));
+                    imageView.setImageResource(R.drawable.intro);
                     break;
                 case 2:
                     titleView.setText(getString(R.string.MLDefinitionTitle));

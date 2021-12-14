@@ -29,7 +29,7 @@
         android:text="Nuro"
         android:id="@+id/nuro_text"
         android:textColor="#ECECEA"
-        android:textSize="35dp"
+        style="@style/TextAppearance.Nuro.Headline3"
 
 
         />
