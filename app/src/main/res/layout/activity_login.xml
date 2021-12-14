@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-
+            android:id="@+id/login_title"
             android:text="Login"
             android:textColor="@color/gray_text"
             android:textSize="40sp" />
@@ -44,6 +44,7 @@
                 app:boxStrokeColor="@color/dark_silver"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
+                android:id="@+id/login_edit_username"
                 app:startIconDrawable="@drawable/username_icon_out">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -61,6 +62,7 @@
                 android:hint="Enter Password"
                 android:textColorHint="@color/dark_silver"
                 app:boxStrokeColor="@color/dark_silver"
+                android:id="@+id/login_edit_password"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
                 app:startIconDrawable="@drawable/pssword_lock"
@@ -86,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/gray_text"
+                    android:id="@+id/remember_me_checkbox"
                     android:textColor="@color/gray_text"/>
 
                 <com.google.android.material.button.MaterialButton

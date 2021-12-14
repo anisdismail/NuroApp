@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class SignUp extends AppCompatActivity {
 
@@ -12,5 +13,11 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ActionBar actionBar = getSupportActionBar();
+    }
+
+    public void signUp(View view) {
+    }
+
+    public void backToLogin(View view) {
     }
 }
