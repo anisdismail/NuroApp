@@ -104,8 +104,6 @@ public class StepsActivity extends AppCompatActivity {
             Intent intent = new Intent(StepsActivity.this, DrawingActivity.class);
             startActivity(intent);
             SkipSound.start();
-
-
         });
     }
 }
