@@ -3,7 +3,9 @@ package com.example.nuroapp;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class SignUp extends AppCompatActivity {
@@ -19,5 +21,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void backToLogin(View view) {
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
     }
 }
