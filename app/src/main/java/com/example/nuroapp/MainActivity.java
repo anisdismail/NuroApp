@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 R.string.drawer_open_description, R.string.drawer_close_description) {
 
             public void onDrawerClosed(View view) {
+
                 super.onDrawerClosed(view);
                 if (latestTitle != null && latestTitle.length() > 0) actionBar.setTitle(latestTitle);
                 else actionBar.setTitle(R.string.app_name);
