@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nuroapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
@@ -10,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NuroApp">
         <activity
+            android:name=".WebsiteActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUp"
             android:exported="false"
             android:theme="@style/Theme.NuroApp.NoActionBar" />
         <activity
             android:name=".Login"
             android:exported="false"
-            android:theme="@style/Theme.NuroApp.NoActionBar"/>
+            android:theme="@style/Theme.NuroApp.NoActionBar" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"

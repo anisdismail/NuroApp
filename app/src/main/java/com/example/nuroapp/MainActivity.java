@@ -1,8 +1,11 @@
 package com.example.nuroapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +13,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,12 +32,14 @@ public class MainActivity extends AppCompatActivity {
     Button ImageDetectionBtn;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //fragmentTransaction = getSupportFragmentManager().beginTransaction();
         //fragmentTransaction.add(R.id.content_frame, new FlowchartsFragment()).commit();
+        MediaPlayer clickSound = MediaPlayer.create(this,R.raw.click);
        actionBar = getSupportActionBar();
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -74,9 +80,24 @@ public class MainActivity extends AppCompatActivity {
                         //fragmentTransaction.replace(R.id.content_frame, new HelpFragment()).commit();
                         break;
                     case R.id.about:
-                        //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
+
+                        AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
+                        builder.setTitle(getString(R.string.app_name));
+                        builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }});
+                        builder.setPositiveButton("Visit", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
+                                        startActivity(intent);
+
+                                    }});
+                                    //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
                         break;
-                }
+                                }
 
                 drawerLayout.closeDrawers();
                 return true;
@@ -98,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         ImageDetectionBtn.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, StepsActivity.class);
             startActivity(i);
+            clickSound.start();
         });
     }
 
