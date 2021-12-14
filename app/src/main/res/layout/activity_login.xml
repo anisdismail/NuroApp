@@ -21,10 +21,10 @@
             android:src="@drawable/general_back_arrow" />
 
         <TextView
+            android:id="@+id/login_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:id="@+id/login_title"
             android:text="Login"
             android:textColor="@color/gray_text"
             android:textSize="40sp" />
@@ -36,6 +36,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_edit_username"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +45,6 @@
                 app:boxStrokeColor="@color/dark_silver"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
-                android:id="@+id/login_edit_username"
                 app:startIconDrawable="@drawable/username_icon_out">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -56,13 +56,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_edit_password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
                 android:textColorHint="@color/dark_silver"
                 app:boxStrokeColor="@color/dark_silver"
-                android:id="@+id/login_edit_password"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
                 app:startIconDrawable="@drawable/pssword_lock"
@@ -83,37 +83,36 @@
                 android:orientation="vertical">
 
                 <CheckBox
+                    android:id="@+id/remember_me_checkbox"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-                    android:text="Remember Me"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/gray_text"
-                    android:id="@+id/remember_me_checkbox"
-                    android:textColor="@color/gray_text"/>
+                    android:text="Remember Me"
+                    android:textColor="@color/gray_text" />
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:onClick="signIn"
-                    android:textAllCaps="false"
-                    android:fontFamily="@font/days_one"
+                    android:layout_marginTop="20dp"
                     android:background="@color/gray_text"
-                    android:textColor="@color/silver"
-                    android:layout_marginTop="20dp"/>
+                    android:fontFamily="@font/days_one"
+                    android:onClick="signIn"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/silver" />
 
                 <Button
                     android:id="@+id/goToSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Create an Account"
-                    android:onClick="callSignUp"
-                    android:textAllCaps="false"
                     android:background="#0000"
+                    android:onClick="callSignUp"
+                    android:text="Create an Account"
+                    android:textAllCaps="false"
                     android:textColor="@color/gray_text" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
