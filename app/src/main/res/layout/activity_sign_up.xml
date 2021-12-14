@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/silver"
-    tools:context=".SignUp"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".SignUp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,25 +17,25 @@
             android:id="@+id/signup_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="backToLogin"
             android:padding="5dp"
-            android:src="@drawable/general_back_arrow"
-            android:onClick="backToLogin"/>
+            android:src="@drawable/general_back_arrow" />
 
         <TextView
-            style="@style/TextAppearance.Nuro.Headline3"
+            android:id="@+id/sign_up_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Let's Create &#xA;an Account!"
+            android:fontFamily="@font/rubik"
+            android:text="Create &#xA;Account"
             android:textColor="@color/gray_text"
-            android:id="@+id/sign_up_title"
-         />
+            android:textSize="40sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -49,9 +49,9 @@
                 app:startIconDrawable="@drawable/pencil_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/signup_first_name"
                     android:inputType="text" />
 
 
@@ -69,9 +69,9 @@
                 app:startIconDrawable="@drawable/pencil_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_last_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/signup_last_name"
                     android:inputType="text" />
 
 
@@ -89,9 +89,9 @@
                 app:startIconDrawable="@drawable/username_icon_out">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/signup_user_name"
                     android:inputType="text" />
 
 
@@ -109,33 +109,15 @@
                 app:startIconDrawable="@drawable/email_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/signup_email"
-                    android:inputType="text" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                android:id="@+id/signup_phone_number"
-                android:textColorHint="@color/dark_silver"
-                app:boxStrokeColor="@color/dark_silver"
-                app:endIconMode="clear_text"
-                app:hintTextColor="@color/dark_silver"
-                app:startIconDrawable="@drawable/phone_icon">
-
-                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -149,8 +131,8 @@
                 app:startIconDrawable="@drawable/pssword_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
                     android:id="@+id/signup_password"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword" />
 
@@ -158,37 +140,31 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:onClick="signUp"
-            android:id="@+id/signup_button"
-            android:textAllCaps="false"
-            android:fontFamily="@font/days_one"
+            android:layout_marginTop="20dp"
             android:background="@color/gray_text"
-            android:textColor="@color/silver"
-            android:layout_marginTop="20dp"/>
+            android:fontFamily="@font/days_one"
+            android:onClick="signUp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/silver" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/goToSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
-            android:onClick="backToLogin"
-            android:textAllCaps="false"
             android:background="#0000"
-            android:textColor="@color/gray_text"
-/>
+            android:onClick="backToLogin"
+            android:text="Already have an account?"
+            android:textAllCaps="false"
+            android:textColor="@color/gray_text" />
 
     </LinearLayout>
-
-
-
 
 
 </ScrollView>

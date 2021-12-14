@@ -15,6 +15,14 @@
             android:name=".QuizActivity"
             android:exported="false" />
         <activity
+            android:name=".SignUpContinuedLast"
+            android:exported="false"
+            android:theme="@style/Theme.NuroApp.NoActionBar" />
+        <activity
+            android:name=".SignUpContinued"
+            android:exported="false"
+            android:theme="@style/Theme.NuroApp.NoActionBar" />
+        <activity
             android:name=".WebsiteActivity"
             android:exported="false" />
         <activity
