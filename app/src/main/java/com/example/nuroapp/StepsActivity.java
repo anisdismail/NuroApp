@@ -105,6 +105,7 @@ public class StepsActivity extends AppCompatActivity {
             startActivity(intent);
             SkipSound.start();
 
+
         });
     }
 }
