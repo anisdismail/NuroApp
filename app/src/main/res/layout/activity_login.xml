@@ -25,9 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:id="@+id/login_title"
-            android:text="Login"
+            android:text="Welcome to Nuro!"
             android:textColor="@color/gray_text"
-            android:textSize="40sp" />
+            style="@style/TextAppearance.Nuro.Headline3" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,11 +102,11 @@
                     android:textColor="@color/silver"
                     android:layout_marginTop="20dp"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/goToSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Create an Account"
+                    android:text="Create Account"
                     android:onClick="callSignUp"
                     android:textAllCaps="false"
                     android:background="#0000"
