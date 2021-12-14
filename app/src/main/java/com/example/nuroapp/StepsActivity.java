@@ -1,6 +1,7 @@
 package com.example.nuroapp;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,6 +28,9 @@ public class StepsActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.imageView);
          TextView bodyView = findViewById(R.id.description);
          TextView titleView = findViewById(R.id.title);
+         MediaPlayer BackSound = MediaPlayer.create(this,R.raw.bck);
+         MediaPlayer ForwardSound = MediaPlayer.create(this,R.raw.frwrd);
+         MediaPlayer SkipSound = MediaPlayer.create(this,R.raw.click);
 
         AtomicInteger count = new AtomicInteger(1); // count the steps in image detection. we have 7 steps in the google doc
 
@@ -58,6 +62,7 @@ public class StepsActivity extends AppCompatActivity {
                 case 7:
                     break;
             }
+            BackSound.start();
 
         });
 
@@ -92,11 +97,13 @@ public class StepsActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
             }
+            ForwardSound.start();
         });
 
         buttonSkip.setOnClickListener(v -> {
             Intent intent = new Intent(StepsActivity.this, DrawingActivity.class);
             startActivity(intent);
+            SkipSound.start();
         });
     }
 }
