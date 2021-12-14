@@ -99,7 +99,9 @@
                     android:fontFamily="@font/days_one"
                     android:onClick="signIn"
                     android:text="Login"
+                    android:transitionName="transition_main_login"
                     android:textAllCaps="false"
+                    android:id="@+id/login_button_main"
                     android:textColor="@color/silver" />
 
                 <Button
