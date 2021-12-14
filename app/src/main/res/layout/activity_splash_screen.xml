@@ -27,6 +27,7 @@
         android:layout_marginTop="90dp"
         android:fontFamily="@font/days_one"
         android:text="Nuro"
+        android:id="@+id/nuro_text"
         android:textColor="#ECECEA"
         android:textSize="35dp"
 
