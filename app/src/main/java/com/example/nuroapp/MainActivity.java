@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 latestTitle = actionBar.getTitle().toString();
                 switch (menuItem.getItemId()) {
                     case R.id.preferences:
-                        clickSound.start();
+                        System.out.println("hi");
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
                     case R.id.help:
