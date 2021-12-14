@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:fontFamily="@font/days_one"
+
             android:text="Login"
             android:textColor="@color/gray_text"
             android:textSize="40sp" />
@@ -40,10 +40,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Username"
+                android:textColorHint="@color/dark_silver"
                 app:boxStrokeColor="@color/dark_silver"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
-                app:startIconDrawable="@drawable/username_icon">
+                app:startIconDrawable="@drawable/username_icon_out">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
+                android:textColorHint="@color/dark_silver"
                 app:boxStrokeColor="@color/dark_silver"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/dark_silver"
