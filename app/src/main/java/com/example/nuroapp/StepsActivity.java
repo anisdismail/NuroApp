@@ -60,7 +60,9 @@ public class StepsActivity extends AppCompatActivity {
                      bodyView.setText(getString(R.string.MlSteps2));
                     break;
                 case 7:
+                    count.set(1);
                     break;
+
             }
             BackSound.start();
 

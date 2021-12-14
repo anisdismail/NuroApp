@@ -14,6 +14,7 @@
         android:layout_marginBottom="40dp"
         android:padding="8dp">
         <TextView
+            style="@style/TextAppearance.Nuro.Headline5"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Score"
@@ -21,6 +22,7 @@
             android:layout_alignParentLeft="true"
             android:id="@+id/score_text"/>
         <TextView
+            style="@style/TextAppearance.Nuro.Headline5"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="0"
@@ -29,46 +31,42 @@
             android:id="@+id/score"/>
     </RelativeLayout>
     <TextView
+        style="@style/TextAppearance.Nuro.Headline5"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Which of the following is not part of the main ingredients of an ML project?"
-        android:textSize="20sp"
+        android:text=""
         android:padding="8dp"
         android:layout_marginBottom="40dp"
         android:id="@+id/question"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Machine Learning Model"
-        android:textColor="#fff"
-        android:background="#0091EA"
+        android:text=""
+        android:textColor="#ffff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
         android:id="@+id/choice1"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Training Algorithm"
-        android:textColor="#fff"
-        android:background="#0091EA"
+        android:text=""
+        android:textColor="#ffff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
         android:id="@+id/choice2"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dataset"
-        android:textColor="#fff"
-        android:background="#0091EA"
+        android:text=""
+        android:textColor="#ffff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
         android:id="@+id/choice3"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cybersecurity"
-        android:textColor="#fff"
-        android:background="#0091EA"
+        android:text=""
+        android:textColor="#ffff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
         android:id="@+id/choice4"/>

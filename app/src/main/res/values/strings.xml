@@ -60,4 +60,15 @@ Congrats!\nYou have completed the module!
 Hard luck :(\nTry again!
     </string>
     <string name="action_settings">Settings</string>
+    <string-array name="Questions"><item name="Q1">Which of the following is not part of the main ingredients of an ML project?</item>
+    <item name="Q2">Which of the following is a Classification Example?</item></string-array>
+    <string-array name="Answers"><item name="A1">Cybersecurity</item>
+        <item name="A2">Face detection</item></string-array>
+
+    <string-array name="ChoicesQ1"><item name="Q11">Machine Learning Model</item>
+        <item name="Q12">Dataset</item><item name="Q13">Cybersecurity</item>
+        <item name="Q14">Training Algorithm</item></string-array>
+    <string-array name="ChoicesQ2"><item name="Q21">Housing prices prediction</item>
+        <item name="Q22">Stock prices prediction</item><item name="Q23">Face detection</item>
+        <item name="Q24">Grades prediction</item></string-array>
 </resources>
