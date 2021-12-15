@@ -94,7 +94,7 @@
                 android:id="@+id/returnButton"
                 style="@style/ShapeTheme"
                 android:onClick="returnButton"
-
+                android:src="@drawable/ic_return"
                 android:contentDescription="Return Home"/>
 
             <ImageView
