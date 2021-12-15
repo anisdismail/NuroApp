@@ -72,10 +72,10 @@ public class DrawingSurface extends View implements View.OnDragListener {
     private static final String evaluatemodel = Shape.SHAPETYPE.EVALUATEMODEL.toString();
     private static final String launchmodel = Shape.SHAPETYPE.LAUNCHMODEL.toString();
 
-   // private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString(),
-     //       Shape.SHAPETYPE.DATAVISUALIZATION.toString(),Shape.SHAPETYPE.BUILDMODEL.toString(),
-       //     Shape.SHAPETYPE.TRAINMODEL.toString(), Shape.SHAPETYPE.EVALUATEMODEL.toString(),Shape.SHAPETYPE.LAUNCHMODEL.toString()  };
-   private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString()};
+   private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString(),
+          Shape.SHAPETYPE.DATAVISUALIZATION.toString(),Shape.SHAPETYPE.BUILDMODEL.toString(),
+        Shape.SHAPETYPE.TRAINMODEL.toString(), Shape.SHAPETYPE.EVALUATEMODEL.toString(),Shape.SHAPETYPE.LAUNCHMODEL.toString()  };
+  // private static  final String[] sequence={Shape.SHAPETYPE.DATALOADING.toString(),Shape.SHAPETYPE.PREPROCESSING.toString()};
     private int nextId;
     private boolean hideLines = false;
 

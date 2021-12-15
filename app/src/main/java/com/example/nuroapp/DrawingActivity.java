@@ -90,18 +90,6 @@ public class DrawingActivity extends AppCompatActivity {
 
     }
 
-    public void setSaveButton (View view){
-       /* String data = drawingSurface.getDiagramData();
-        if (!(new File(pathToImage).exists())){
-            saveImage();
-        }
-        if (databaseHelper.getDiagram(flowchartName) != null){
-            databaseHelper.updateDiagram(flowchartName, data);
-        } else {
-            databaseHelper.insertDiagram(flowchartName, data, pathToImage);
-        }
-    */
-    }
     public void runButton(View view){
         Intent intent;
         if(drawingSurface.validateSequence()){
