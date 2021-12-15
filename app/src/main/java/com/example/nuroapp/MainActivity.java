@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -73,35 +74,23 @@ public class MainActivity extends AppCompatActivity {
                 latestTitle = actionBar.getTitle().toString();
                 switch (menuItem.getItemId()) {
                     case R.id.preferences:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PreferencesFragment()).commit();
                         System.out.println("hi");
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
                     case R.id.help:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new HelpFragment()).commit();
                         clickSound.start();
                         //fragmentTransaction.replace(R.id.content_frame, new HelpFragment()).commit();
                         break;
                     case R.id.about:
-                    {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AboutFragment()).commit();
 
-                        AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
-                        builder.setTitle(getString(R.string.app_name));
-                        builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }});
-                        builder.setPositiveButton("Visit", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
-                                        startActivity(intent);
-
-                                    }});}
                                     //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
                         break;
                                 }
 
-                drawerLayout.closeDrawers();
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
