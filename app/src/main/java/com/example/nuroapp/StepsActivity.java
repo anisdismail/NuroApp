@@ -102,7 +102,7 @@ public class StepsActivity extends AppCompatActivity {
                     break;
                 default:
                     count.set(7); //to not get back to 8 when back is pressed
-                    Intent intent= new Intent(StepsActivity.this, DrawingActivity.class);
+                    Intent intent= new Intent(StepsActivity.this, QuizActivity.class);
                     startActivity(intent);
                     break;
             }
@@ -110,7 +110,7 @@ public class StepsActivity extends AppCompatActivity {
         });
 
         buttonSkip.setOnClickListener(v -> {
-            Intent intent = new Intent(StepsActivity.this, DrawingActivity.class);
+            Intent intent = new Intent(StepsActivity.this, QuizActivity.class);
             startActivity(intent);
             SkipSound.start();
 

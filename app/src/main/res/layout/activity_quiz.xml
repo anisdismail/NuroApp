@@ -26,14 +26,13 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="0"
-            android:textSize="20sp"
             android:layout_alignParentRight="true"
             android:id="@+id/score"/>
     </RelativeLayout>
     <TextView
         style="@style/TextAppearance.Nuro.Headline5"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:text=""
         android:padding="8dp"
         android:layout_marginBottom="40dp"

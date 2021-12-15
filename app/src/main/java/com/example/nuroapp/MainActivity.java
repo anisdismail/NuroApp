@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     private String latestTitle;
 
-    Button ImageDetectionBtn;
-    Button ImageClassificationBtn;
+    Button MLWorkflowBtn;
 
 
 
@@ -38,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //fragmentTransaction.add(R.id.content_frame, new FlowchartsFragment()).commit();
+
         MediaPlayer clickSound = MediaPlayer.create(this,R.raw.click);
        actionBar = getSupportActionBar();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -119,18 +117,13 @@ public class MainActivity extends AppCompatActivity {
          //   folder.mkdirs();
         //}
 
-        ImageDetectionBtn = findViewById(R.id.buttonMLWorkflow);
-        ImageDetectionBtn.setOnClickListener(v -> {
+        MLWorkflowBtn = findViewById(R.id.buttonMLWorkflow);
+        MLWorkflowBtn.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, StepsActivity.class);
             startActivity(i);
             clickSound.start();
         });
-        ImageClassificationBtn = findViewById(R.id.buttonImgClassification);
-        ImageClassificationBtn.setOnClickListener(v -> {
-            Intent i = new Intent(MainActivity.this, StepsActivity.class);
-            startActivity(i);
-            clickSound.start();
-        });
+
 
     }
 
