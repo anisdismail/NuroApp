@@ -1,77 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/silver"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
         <LinearLayout
+            android:id="@+id/linear_first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="350dp"
                 android:layout_height="181dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/intro"
-                 />
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/intro" />
 
             <TextView
                 android:id="@+id/title"
                 style="@style/TextAppearance.Nuro.Headline5"
-                android:layout_width="362dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp"
                 android:text="@string/MLModuleWelcomePageTitle" />
 
             <TextView
-                style="@style/TextAppearance.Nuro.Body1"
                 android:id="@+id/description"
-                android:layout_width="362dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/MLModuleWelcomePage"
-                />
-
-            <LinearLayout
+                style="@style/TextAppearance.Nuro.Body1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/buttonBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Back" />
-
-                <Button
-                    android:id="@+id/buttonNext"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-
-                    android:text="Next" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/buttonSkip"
-                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:text="Skip tutorial" />
+                android:padding="5dp"
+                android:text="@string/MLModuleWelcomePage" />
+
 
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_first"
+        app:layout_constraintVertical_bias="1.0">
 
-</ScrollView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Back" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Next" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="Skip tutorial"
+            android:textColor="@color/gray_text"
+            app:backgroundTint="@color/dark_silver" />
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
