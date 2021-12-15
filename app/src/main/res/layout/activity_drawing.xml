@@ -82,34 +82,41 @@
 
 
         <LinearLayout
-            android:padding="16dp"
-            android:background="@drawable/background_border"
             android:id="@+id/toolsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
+
+
             <ImageView
-                android:onClick="setSaveButton"
-                android:id="@+id/saveButton"
+                android:id="@+id/returnButton"
                 style="@style/ShapeTheme"
-                android:src="@drawable/ic_save"/>
+                android:onClick="returnButton"
+                android:src="@drawable/ic_return"
+                android:contentDescription="Return Home"/>
+
             <ImageView
-                android:onClick="runButton"
                 android:id="@+id/runButton"
                 style="@style/ShapeTheme"
-                android:src="@drawable/ic_play" />
+                android:onClick="runButton"
+                android:src="@drawable/ic_play"
+                android:contentDescription="Run"/>
 
             <ImageView
-                android:onClick="setDeleteButton"
                 android:id="@+id/deleteButton"
                 style="@style/ShapeTheme"
-                android:src="@drawable/ic_delete"/>
+                android:onClick="setDeleteButton"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Delete shape"/>
 
             <ImageView
-                android:onClick="resetButton"
                 android:id="@+id/resetButton"
                 style="@style/ShapeTheme"
-                android:src="@drawable/ic_reset" />
+                android:onClick="resetButton"
+                android:src="@drawable/ic_reset"
+                android:contentDescription="Reset"/>
 
 
         </LinearLayout>

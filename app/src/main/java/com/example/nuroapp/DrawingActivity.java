@@ -112,168 +112,20 @@ public class DrawingActivity extends AppCompatActivity {
             startActivity(intent);
         };
     }
-    public void setImageButton (View view){
-        saveImage();
-    }
 
     private void saveImage(){
-        View content = drawingSurface;
-        drawingSurface.prepareToSaveAsImage(true);
-        content.setDrawingCacheEnabled(true);
-        content.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-        Bitmap bitmap = content.getDrawingCache();
-        FileOutputStream ostream;
-        File folder = new File(pathToFolder);
-        if (!folder.exists()){
-            folder.mkdirs();
-        }
-        File file = new File (pathToImage);
-        try {
-            file.createNewFile();
-            ostream = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, ostream);
-            ostream.flush();
-            ostream.close();
-            Toast.makeText(getApplicationContext(), "image saved" + pathToImage, Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
-        }
-        drawingSurface.prepareToSaveAsImage(false);
+ //save image as json
     }
 
     public void resetButton(View view) {
         drawingSurface.reset();
     }
 
-/*    private class LoadDiagramDataTask extends AsyncTask<Void, Void, Void> {
+    public void returnButton(View view) {
+     //save before leaving
+        saveImage();
+        Intent intent= new Intent(DrawingActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            int nextId = 0;
-            try {
-                JSONArray jsonArray = new JSONArray(data);
-                for (int i=0;i<jsonArray.length();i++){
-                    JSONObject jShape = jsonArray.getJSONObject(i);
-                    int id = jShape.getInt("id");
-                    if (id >= nextId){
-                        nextId = id + 1;
-                    }
-                    int width = jShape.getInt("width");
-                    int height = jShape.getInt("height");
-                    JSONObject jOrigin = jShape.getJSONObject("shapeOrigin");
-                    int x = jOrigin.getInt("x");
-                    int y = jOrigin.getInt("y");
-                    String shapeTypeString = jShape.getString("shapetype");
-                    Shape.SHAPETYPE shapetype = Shape.SHAPETYPE.valueOf(shapeTypeString);
-                    String text = "";
-                    if (jShape.has("text")){
-                        JSONObject jText = jShape.getJSONObject("text");
-                        text = jText.getString("string");
-                    }
-                    if (jShape.has("line")){
-                        JSONObject jLine = jShape.getJSONObject("line");
-                    }
-                    switch (shapetype){
-                        case WHILE:
-                            drawingSurface.getShapes().add(new WhileShape(DrawingActivity.this, drawingSurface, x, y, width, height, shapetype, id));
-                            break;
-                        case CONDITION:
-                            drawingSurface.getShapes().add(new ConditionShape(DrawingActivity.this, drawingSurface, x, y, width, height, shapetype, id));
-                            break;
-                        default:
-                            drawingSurface.getShapes().add(new Shape(DrawingActivity.this, drawingSurface, x, y, width, height, shapetype, id));
-                            break;
-                    }
-                    if (text.length() > 0){
-                        drawingSurface.getShape(id).setText(new Text(drawingSurface, drawingSurface.getShape(id), text));
-                    }
-                    drawingSurface.setNextId(nextId);
-                }
-                for (int i=0;i<jsonArray.length();i++){
-                    JSONObject jShape = jsonArray.getJSONObject(i);
-                    int id = jShape.getInt("id");
-                    String shapeTypeString = jShape.getString("shapetype");
-                    Shape.SHAPETYPE shapetype = Shape.SHAPETYPE.valueOf(shapeTypeString);
-                    switch (shapetype){
-                        case CONDITION:
-                            if (jShape.has("trueLine")){
-                                JSONObject jTrueLine = jShape.getJSONObject("trueLine");
-                                String firstPositionString = jTrueLine.getString("firstPosition");
-                                Line.POSITION firstPosition = Line.POSITION.valueOf(firstPositionString);
-                                String secondPositionString = jTrueLine.getString("secondPosition");
-                                Line.POSITION secondPosition = Line.POSITION.valueOf(secondPositionString);
-                                int firstShapeId = jTrueLine.getInt("firstShapeId");
-                                int secondShapeId = jTrueLine.getInt("secondShapeId");
-                                ConditionShape conditionShape = (ConditionShape) drawingSurface.getShape(id); 
-                                conditionShape.setLineFromJSON(firstPosition, secondShapeId, secondPosition);
-                            }
-                            if (jShape.has("falseLine")){
-                                JSONObject jFalseLine = jShape.getJSONObject("falseLine");
-                                String firstPositionString = jFalseLine.getString("firstPosition");
-                                Line.POSITION firstPosition = Line.POSITION.valueOf(firstPositionString);
-                                String secondPositionString = jFalseLine.getString("secondPosition");
-                                Line.POSITION secondPosition = Line.POSITION.valueOf(secondPositionString);
-                                int firstShapeId = jFalseLine.getInt("firstShapeId");
-                                int secondShapeId = jFalseLine.getInt("secondShapeId");
-                                ConditionShape conditionShape = (ConditionShape) drawingSurface.getShape(id);
-                                conditionShape.setLineFromJSON(firstPosition, secondShapeId, secondPosition);
-                            }
-                            break;
-                        case WHILE:
-                            if (jShape.has("line")){
-                                JSONObject jLine = jShape.getJSONObject("line");
-                                String firstPositionString = jLine.getString("firstPosition");
-                                Line.POSITION firstPosition = Line.POSITION.valueOf(firstPositionString);
-                                String secondPositionString = jLine.getString("secondPosition");
-                                Line.POSITION secondPosition = Line.POSITION.valueOf(secondPositionString);
-                                int firstShapeId = jLine.getInt("firstShapeId");
-                                int secondShapeId = jLine.getInt("secondShapeId");
-                                drawingSurface.getShape(id).setLineFromJSON(firstPosition, secondShapeId, secondPosition);
-                            }
-                            if (jShape.has("whileLine")){
-                                JSONObject jWhileLine = jShape.getJSONObject("whileLine");
-                                String firstPositionString = jWhileLine.getString("firstPosition");
-                                Line.POSITION firstPosition = Line.POSITION.valueOf(firstPositionString);
-                                String secondPositionString = jWhileLine.getString("secondPosition");
-                                Line.POSITION secondPosition = Line.POSITION.valueOf(secondPositionString);
-                                int firstShapeId = jWhileLine.getInt("firstShapeId");
-                                int secondShapeId = jWhileLine.getInt("secondShapeId");
-                                WhileShape whileShape = (WhileShape) drawingSurface.getShape(id);
-                                whileShape.setLineFromJSON(firstPosition, secondShapeId, secondPosition);
-                            }
-                            break;
-                        default:
-                            if (jShape.has("line")){
-                                JSONObject jLine = jShape.getJSONObject("line");
-                                String firstPositionString = jLine.getString("firstPosition");
-                                Line.POSITION firstPosition = Line.POSITION.valueOf(firstPositionString);
-                                String secondPositionString = jLine.getString("secondPosition");
-                                Line.POSITION secondPosition = Line.POSITION.valueOf(secondPositionString);
-                                int firstShapeId = jLine.getInt("firstShapeId");
-                                int secondShapeId = jLine.getInt("secondShapeId");
-                                drawingSurface.getShape(id).setLineFromJSON(firstPosition, secondShapeId, secondPosition);
-                            }
-                            break;
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            progressBar.setVisibility(View.GONE);
-            drawingSurface.invalidate();
-        }
-    }*/
 }
