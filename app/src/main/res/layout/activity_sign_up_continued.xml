@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="70dp"
+                    android:layout_marginRight="50dp"
 
                     android:text="Male" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="70dp"
+                    android:layout_marginRight="50dp"
                     android:text="Female" />
 
                 <RadioButton

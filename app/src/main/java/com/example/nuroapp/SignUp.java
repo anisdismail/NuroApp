@@ -20,6 +20,7 @@ public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText firstName, lastName, emailText, passwordText, userName;
+    private User user = new User();
 
 
     @Override
@@ -38,8 +39,6 @@ public class SignUp extends AppCompatActivity {
     public void goSecondSignUp(View view) {
         registerUser();
 
-
-
     }
 
     private void registerUser() {
@@ -49,18 +48,27 @@ public class SignUp extends AppCompatActivity {
             firstName.setError("Enter a Valid First Name");
             firstName.requestFocus();
             return;
+        }else{
+            user.setFirstName(firstName.getText().toString().trim());
         }
 
         if(lastName.getText().toString().length()>0 ){
-
+            user.setLastName(lastName.getText().toString().trim());
+        }else{
+            lastName.setError("Enter a Valid First Name");
+            lastName.requestFocus();
+            return;
         }
         if(passwordText.getText().toString().length()<8){
             passwordText.setError("Password Needs to be longer");
             passwordText.requestFocus();
             return;
+        }else{
+            user.setPassword(passwordText.getText().toString().trim());
         }
         if(emailText.getText().toString().length()>0){
             if(!TextUtils.isEmpty(emailText.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(emailText.getText().toString()).matches()){
+                user.setEmail(emailText.getText().toString().trim());
             }
             else{
                 emailText.setError("Enter a Valid Email");
@@ -72,6 +80,9 @@ public class SignUp extends AppCompatActivity {
             emailText.requestFocus();
             return;
         }
+
+        Intent intent = new Intent(SignUp.this, SignUpContinued.class);
+        intent.putExtra("User",user);
 
     }
 
