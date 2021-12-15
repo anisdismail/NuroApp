@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "599991963479",
+    "project_id": "nuroapp-2132a",
+    "storage_bucket": "nuroapp-2132a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599991963479:android:e63cc599d7f4174778f812",
+        "android_client_info": {
+          "package_name": "com.example.nuroapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599991963479-r8vsmjfo3p7hkqdii55nebm0ig7aeang.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWgfxlwRo0s-0CyBIdEWOi8ODo53yxeWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599991963479-r8vsmjfo3p7hkqdii55nebm0ig7aeang.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
