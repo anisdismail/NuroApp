@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class User implements Parcelable {
 
-    public String firstName, lastName, email, username, password, gender, phone;
-    public Date dob;
+    public String firstName, lastName, email, username, password, gender, phone, dob;
+
 
     protected User(Parcel in) {
         firstName = in.readString();
@@ -65,7 +65,7 @@ public class User implements Parcelable {
         this.password = password;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

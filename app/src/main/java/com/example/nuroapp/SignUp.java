@@ -13,13 +13,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText firstName, lastName, emailText, passwordText, userName;
+    private TextInputEditText firstName, lastName, emailText, passwordText, userName;
     private User user = new User();
 
 
@@ -29,11 +30,11 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         ActionBar actionBar = getSupportActionBar();
         mAuth = FirebaseAuth.getInstance();
-        firstName = (EditText) findViewById(R.id.signup_first_name);
-        lastName = (EditText) findViewById(R.id.signup_last_name);
-        emailText = (EditText) findViewById(R.id.signup_email);
-        passwordText = (EditText) findViewById(R.id.signup_password);
-        userName = (EditText) findViewById(R.id.signup_user_name);
+        firstName = (TextInputEditText) findViewById(R.id.signup_first_name);
+        lastName = (TextInputEditText) findViewById(R.id.signup_last_name);
+        emailText = (TextInputEditText) findViewById(R.id.signup_email);
+        passwordText = (TextInputEditText) findViewById(R.id.signup_password);
+        userName = (TextInputEditText) findViewById(R.id.signup_user_name);
     }
 
     public void goSecondSignUp(View view) {
@@ -83,6 +84,7 @@ public class SignUp extends AppCompatActivity {
 
         Intent intent = new Intent(SignUp.this, SignUpContinued.class);
         intent.putExtra("User",user);
+        startActivity(intent);
 
     }
 

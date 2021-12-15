@@ -40,7 +40,7 @@
             <com.hbb20.CountryCodePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/country_code"
                 android:background="@drawable/gray_border"
                 app:ccp_autoDetectCountry="true"
                 app:ccp_showFlag="true"
@@ -65,6 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/phone_number"
                     android:inputType="phone" />
 
 
@@ -72,6 +73,14 @@
 
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/simpleProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:outlineAmbientShadowColor="@color/dark_silver"
+            android:outlineSpotShadowColor="@color/dark_silver"
+            android:layout_gravity="center"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signup_button"

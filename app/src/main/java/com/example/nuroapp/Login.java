@@ -14,16 +14,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    //FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
+/*        mAuth = FirebaseAuth.getInstance();*/
         ActionBar actionBar = getSupportActionBar();
     }
-
+/*
     @Override
     protected void onStart(){
         super.onStart();
@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent ());
         }
     }
-
+*/
     public void callSignUp(View view) {
         Intent intent = new Intent(getApplicationContext(),SignUp.class);
         startActivity(intent);
