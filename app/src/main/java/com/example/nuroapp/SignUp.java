@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
@@ -60,6 +61,13 @@ public class SignUp extends AppCompatActivity {
             lastName.requestFocus();
             return;
         }
+        if(userName.getText().toString().length()>0 ){
+            user.setUsername(userName.getText().toString().trim());
+        }else{
+            userName.setError("Enter a Valid Username");
+            userName.requestFocus();
+            return;
+        }
         if(passwordText.getText().toString().length()<8){
             passwordText.setError("Password Needs to be longer");
             passwordText.requestFocus();
@@ -83,7 +91,11 @@ public class SignUp extends AppCompatActivity {
         }
 
         Intent intent = new Intent(SignUp.this, SignUpContinued.class);
-        intent.putExtra("User",user);
+        intent.putExtra("First Name",user.firstName);
+        intent.putExtra("Last Name",user.lastName);
+        intent.putExtra("Username",user.username);
+        intent.putExtra("Password",user.password);
+        intent.putExtra("Email",user.email);
         startActivity(intent);
 
     }

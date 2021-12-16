@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class SignUpContinued extends AppCompatActivity {
-    User user;
+    User user = new User();
     RadioGroup radioGroup;
     RadioButton radioButton2,radioButton3,radioButton;
     DatePicker datePicker;
@@ -23,7 +23,18 @@ public class SignUpContinued extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_continued);
-        user = getIntent().getParcelableExtra("User");
+        System.out.println("Mraha " + getIntent().getExtras().getString("Username"));
+        /*user.firstName = getIntent().getExtras().getString("First Name");
+        user.lastName = getIntent().getExtras().getString("Last Name");
+        user.username = getIntent().getExtras().getString("Username");
+        user.email = getIntent().getExtras().getString("Email");
+        user.password = getIntent().getExtras().getString("Password");*/
+        user.setFirstName(getIntent().getExtras().getString("First Name"));
+        user.setLastName(getIntent().getExtras().getString("Last Name"));
+        user.setUsername(getIntent().getExtras().getString("Username"));
+        user.setEmail(getIntent().getExtras().getString("Email"));
+        user.setPassword(getIntent().getExtras().getString("Password"));
+        //System.out.println("Mrad + " + user.username);
         radioGroup =  findViewById(R.id.radio_group);
         radioButton2 = findViewById(R.id.radioButton2);
         radioButton3 = findViewById(R.id.radioButton3);
@@ -68,7 +79,13 @@ public class SignUpContinued extends AppCompatActivity {
 
 
         Intent intent = new Intent(getApplicationContext(),SignUpContinuedLast.class);
-        intent.putExtra("User",user);
+        intent.putExtra("First Name",user.firstName);
+        intent.putExtra("Last Name",user.lastName);
+        intent.putExtra("Username",user.username);
+        intent.putExtra("Password",user.password);
+        intent.putExtra("Email",user.email);
+        intent.putExtra("Gender", user.gender);
+        intent.putExtra("DOB", user.dob);
         startActivity(intent);
 
     }

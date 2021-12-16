@@ -78,6 +78,7 @@
             android:id="@+id/simpleProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:outlineAmbientShadowColor="@color/dark_silver"
             android:outlineSpotShadowColor="@color/dark_silver"
             android:layout_gravity="center"/>
@@ -90,7 +91,7 @@
             android:background="@color/gray_text"
             android:fontFamily="@font/days_one"
             android:onClick="signUpSecondLast"
-            android:text="Next"
+            android:text="Sign Up"
             android:textAllCaps="false"
             android:textColor="@color/silver" />
 
