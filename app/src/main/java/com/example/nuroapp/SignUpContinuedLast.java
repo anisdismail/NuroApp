@@ -76,6 +76,8 @@ public class SignUpContinuedLast extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Toast.makeText(SignUpContinuedLast.this, "User created!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
+                                        Toast.makeText(SignUpContinuedLast.this, "Login with your new account!", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(SignUpContinuedLast.this, Login.class));
                                     }else{
                                         Toast.makeText(SignUpContinuedLast.this, "User creation unsuccessful", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
