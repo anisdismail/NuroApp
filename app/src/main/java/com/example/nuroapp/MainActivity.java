@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -105,16 +106,19 @@ public class MainActivity extends AppCompatActivity {
                 latestTitle = actionBar.getTitle().toString();
                 switch (menuItem.getItemId()) {
                     case R.id.preferences:
+                        Toast.makeText(MainActivity.this, "Preferences is clicked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PreferencesFragment()).commit();
                         System.out.println("hi");
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
                     case R.id.help:
+                        Toast.makeText(MainActivity.this, "Help is clicked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new HelpFragment()).commit();
                         clickSound.start();
                         //fragmentTransaction.replace(R.id.content_frame, new HelpFragment()).commit();
                         break;
                     case R.id.about:
+                        Toast.makeText(MainActivity.this, "About is clicked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AboutFragment()).commit();
 
                                     //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
