@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Preferences is clicked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PreferencesFragment()).commit();
                         System.out.println("hi");
+                        clickSound.start();
                         //fragmentTransaction.replace(R.id.content_frame, new PreferencesFragment()).commit();
                         break;
                     case R.id.help:
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.about:
                         Toast.makeText(MainActivity.this, "About is clicked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AboutFragment()).commit();
-
+                        clickSound.start();
                                     //fragmentTransaction.replace(R.id.content_frame, new AboutFragment()).commit();
                         break;
                                 }
@@ -168,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
+
+
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

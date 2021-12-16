@@ -91,7 +91,7 @@ public class SignUpContinued extends AppCompatActivity {
     }
 
     public void backToLogin(View view) {
-        Intent intent = new Intent(getApplicationContext(), SignUpContinued.class);
+        Intent intent = new Intent(getApplicationContext(), SignUp.class);
         startActivity(intent);
     }
 }
