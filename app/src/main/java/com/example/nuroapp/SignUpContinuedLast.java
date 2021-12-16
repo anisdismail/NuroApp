@@ -85,6 +85,10 @@ public class SignUpContinuedLast extends AppCompatActivity {
                         }
                     }
                 });
+
+        SharedPreferences.Editor editor = getSharedPreferences("UsersData", MODE_PRIVATE).edit();
+        editor.putString("Email", user.email);
+        editor.apply();
 /*        FirebaseDatabase.getInstance().getReference().child("Users").child(user.username);
         FirebaseDatabase.getInstance().getReference().child("Users").child(user.username).child("First Name").setValue(user.firstName);
         FirebaseDatabase.getInstance().getReference().child("Users").child(user.username).child("Last Name").setValue(user.lastName);
