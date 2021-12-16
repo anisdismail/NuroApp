@@ -87,7 +87,7 @@ public class SignUpContinued extends AppCompatActivity {
         intent.putExtra("Gender", user.gender);
         intent.putExtra("DOB", user.dob);
         startActivity(intent);
-
+        
     }
 
     public void backToLogin(View view) {

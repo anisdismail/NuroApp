@@ -25,11 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     FirebaseUser fbUser;
     FirebaseAuth mAuth;
-    DatabaseReference dbReference;
+    //DatabaseReference dbReference;
     ImageView out;
     Button MLWorkflowBtn;
     String firstName;
@@ -55,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         fbUser = mAuth.getCurrentUser();
-        dbReference = FirebaseDatabase.getInstance().getReference("Users");
+        /*dbReference = FirebaseDatabase.getInstance().getReference("Users");
         dbReference.child(fbUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
-        textView.setText("Welcome! Ready to learn?");
+        });*/
+        //textView.setText("Welcome! Ready to learn?");
         out = findViewById(R.id.sign_out);
         MediaPlayer clickSound = MediaPlayer.create(this,R.raw.click);
        actionBar = getSupportActionBar();
