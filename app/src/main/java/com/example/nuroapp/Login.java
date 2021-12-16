@@ -79,11 +79,18 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    Pair[] pairs = new Pair[1];
-                    pairs[0] = new Pair<View, String>(findViewById(R.id.login_button_main), "transition_main_login");
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
-                    startActivity(intent, options.toBundle());
+                    FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
+                    if(fbUser.isEmailVerified()){
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Pair[] pairs = new Pair[1];
+                        pairs[0] = new Pair<View, String>(findViewById(R.id.login_button_main), "transition_main_login");
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+                        startActivity(intent, options.toBundle());
+                    }else{
+                        fbUser.sendEmailVerification();
+                        Toast.makeText(Login.this, "Check your Email", Toast.LENGTH_SHORT).show();
+                    }
+
                 }else{
                     Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }

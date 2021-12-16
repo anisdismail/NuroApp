@@ -11,7 +11,9 @@ android:layout_height="match_parent">
     <FrameLayout
     android:id="@+id/content_frame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent" >
+
+    </FrameLayout>
 <!-- The navigation drawer -->
 <com.google.android.material.navigation.NavigationView
     android:id="@+id/navigation_view"
@@ -25,13 +27,22 @@ android:layout_height="match_parent">
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="logOut"
+            android:id="@+id/sign_out"
+            android:src="@drawable/log_out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
 
             android:id="@+id/textView"
             android:layout_width="304dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="Welcome back John Cena, what would you like to learn today?"
+            android:text=""
             android:textAppearance="@style/TextAppearance.Nuro.Headline5"
             app:layout_constraintBottom_toTopOf="@+id/buttonMLWorkflow"
             app:layout_constraintEnd_toEndOf="parent"

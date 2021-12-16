@@ -3,12 +3,15 @@ package com.example.nuroapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -20,6 +23,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     FragmentTransaction fragmentTransaction;
     private String latestTitle;
-
+    TextView textView;
+    FirebaseUser fbUser;
+    FirebaseAuth mAuth;
+    ImageView out;
     Button MLWorkflowBtn;
 
 
@@ -38,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mAuth = FirebaseAuth.getInstance();
+        fbUser = mAuth.getCurrentUser();
+        textView.setText("Welcome!");
+        out = findViewById(R.id.sign_out);
         MediaPlayer clickSound = MediaPlayer.create(this,R.raw.click);
        actionBar = getSupportActionBar();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -139,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
         // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void logOut(View view){
+
     }
 
 }
