@@ -37,6 +37,19 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
         ActionBar actionBar = getSupportActionBar();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(user != null) {
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Pair[] pairs = new Pair[1];
+            pairs[0] = new Pair<View, String>(findViewById(R.id.login_button_main), "transition_main_login");
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+            startActivity(intent, options.toBundle());
+
+            this.finish();
+
+        }
     }
 
     /*

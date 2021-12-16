@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     //DatabaseReference dbReference;
     ImageView out;
     Button MLWorkflowBtn;
+    FirebaseAuth.AuthStateListener mAuthListener;
     String firstName;
 
 
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         fbUser = mAuth.getCurrentUser();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            }
+        };
         /*dbReference = FirebaseDatabase.getInstance().getReference("Users");
         dbReference.child(fbUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
