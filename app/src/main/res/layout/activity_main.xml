@@ -9,18 +9,20 @@ android:layout_height="match_parent">
 <!-- The main content view -->
 
 
+    <!-- The navigation drawer -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="logOut"
-            android:id="@+id/sign_out"
             android:src="@drawable/log_out"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
 
@@ -80,14 +82,6 @@ android:layout_height="match_parent">
             app:layout_constraintVertical_bias="0.371" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <!-- The navigation drawer -->
-
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
@@ -96,6 +90,12 @@ android:layout_height="match_parent">
         android:layout_gravity="start"
         app:menu="@menu/navigation_menu">
 
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
