@@ -5,13 +5,12 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!--[![MIT License][license-shield]][license-url] -->
+[![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img src="images/logo.png" alt="Nuro app logo" align="center">
+  <img src="app/src/main/res/drawable/app_icon.png" alt="Nuro app logo" width="150" height="150" align="center">
   <h3 align="center">Nuro - Learning Machine Learning is Fun! </h3>
 
   <p align="center">
@@ -124,8 +123,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Your Name - [Anis Ismail](https://linkedin.com/in/anisdimail) - anisismail09[at]gmail[dot]com
 
-Project Link: [https://github.com/anisdismail/NuroApp](https://github.com/anisdismail/NuroApp)](https://github.com/anisdismail/NuroApp)
-
+Project Link: [https://github.com/anisdismail/NuroApp](https://github.com/anisdismail/NuroApp)
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -151,5 +149,5 @@ Project Link: [https://github.com/anisdismail/NuroApp](https://github.com/anisdi
 [issues-url]: https://github.com/anisdismail/NuroApp/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/anisdimail
-<!--[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt -->
+[license-shield]: https://img.shields.io/github/license/anisdismail/NuroApp.svg?style=for-the-badge
+[license-url]: https://github.com/anisdismail/NuroApp/blob/master/LICENSE
