@@ -57,10 +57,11 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+In this project, we designed and implemented a not-for-profit Android application developed in Android Studio that teaches teens and high school students about Machine Learning in a fun and interactive way. The app is called “Nuro”, inspired by neural networks, an emerging technology in Artificial Intelligence.
 ### Built With
 
-* []()
+* [Android Studio]()
+* [Java]()
 
 <!-- GETTING STARTED -->
 ## Getting Started
