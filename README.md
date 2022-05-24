@@ -72,7 +72,7 @@ To get a local copy up and running follow these simple steps.
 
 * All required packages can be installed as follow:
   ```sh
-  pip install -r requirements.txt
+  
   ```
 * **Please note that this project requires a GPU for training**
 ### Installation
@@ -83,7 +83,7 @@ To get a local copy up and running follow these simple steps.
    ```
 2. Change to the project repositry:
    ```sh
-   cd E2E/E2E_Regression_Anis_Ismail
+   cd NuroApp
 
    ```
 
@@ -130,6 +130,7 @@ Project Link: [https://github.com/anisdismail/NuroApp](https://github.com/anisdi
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
+* [Anis Ismail](https://www.linkedin.com/in/anisdismail)
 * [Karim Mrad]()
 * [Khalil ElDaou]()
 * [Joey ElGhreichi]()
