@@ -70,11 +70,8 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* All required packages can be installed as follow:
-  ```sh
-  
-  ```
-* **Please note that this project requires a GPU for training**
+*  All required dependencies can be installed with **Gradle**.
+
 ### Installation
 
 1. Clone the repo
@@ -86,9 +83,46 @@ To get a local copy up and running follow these simple steps.
    cd NuroApp
 
    ```
-
+3. Load and Run the Project in Android Studio
+ 
 <!-- USAGE EXAMPLES -->
-## Usage
+## About the Project
+
+### 1. Log In Page: <br>
+<img src="images/login.jpg" style="width: 25%;"> <br>
+The user is prompted to enter their email address and password. Both fields are required to be not empty, and the email text needs to conform to the general email text form. The user can enter their credentials, they will then either be prompted to activate their account from their email, or just log in (depending on whether they had activated it before or not). The authentication makes use of the firebase authentication module, we persist the sign in state so as to not require a login each time the app is opened. If the user does not have an account, he can create one by clicking on the “Create an Account” button.
+
+### 2. Sign Up Page: <br>
+<img src="images/signup.jpg" style="width: 25%;"> <br>
+The user enters their first name, last name, username, email and password, all of which need to conform to their own specific standard (password length, email, text fields not empty). Should the user misconfigure one of them, a small note would be triggered from the edit text.
+
+### 3. Tutorials: 
+<div>
+<img src="images/welcome_page.jpg" style="float: left; width: 25%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="images/first_module.jpg" style="float: left; width: 25%; margin-right: 1%; margin-bottom: 0.5em;">
+<p style="clear: both;">
+</div>
+<br>
+Through the tutorials, the user can learn several ML concepts. In the first module, the user will learn their way through machine learning workflow. There are 7 steps in this tutorial, and every time the user presses next, they will move on to the next step. <br>
+
+<img src="images/quiz.jpg" style="width: 25%;"> 
+
+As the user progresses through learning about ML, the user is prompted to solve a quiz. We also keep track of the score to show how many questions were correct. Finally, in case the user selected the wrong answer, they will be prompted with an alert dialogue to show it was incorrect and try again. 
+
+### 4. Project:
+<div>
+<img src="images/diagram.jpg" style="float: left; width: 25%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="images/diagram2.jpg" style="float: left; width: 25%; margin-right: 1%; margin-bottom: 0.5em;">
+<p style="clear: both;">
+ </div>
+ 
+-	After successfully completing the quiz, the user will then move to the final part of the module. 
+-	In this project, the user will be asked to use the knowledge acquired in this module to build a ML workflow from start to end. 
+-	The user can drag any shape from the top layout to the drawing region and can connect it to any other shape. 
+-	Once the user is satisfied with the design, the user can press on the validate button (back triangle) to validate if the design is correct or not.
+-	The user can press the home button to return to the main activity.
+-	The user can also press the trash button to eliminate a shape from the graph.
+-	To delete all the shapes, the press should press the half cycle button to reset the design.
 
 
 <!-- ROADMAP -->
